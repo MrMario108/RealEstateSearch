@@ -1,0 +1,22 @@
+{% extends "olxSearch/base.html" %}
+
+{%load crispy_forms_tags %}
+
+{% block title %}Edycja ustawień{% endblock %}
+
+{% block content %}
+
+    <div class="pad-left-res bg-light border rounded-3">
+        <h1>Edycja ustawień wyszukiwania</h1>
+    </div>
+    <p></p>
+    <div class="pad-left-res bg-light border rounded-3">
+
+    <p>Ustawienia wyszukiwania możesz zmienić za pomocą poniższego formularza:</p>
+    <form action="." method="post" enctype="multipart/form-data">
+        {{ searchSet_form | crispy }}
+        {% csrf_token %}
+        <p></p>
+        <p><input type="submit" value="Zapisz zmiany"></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "olxSearch/base.html" %}
+
+{% block title %}Lista wyszukiwń{% endblock %}
+
+{% block content %}
+
+    <div class="pad-left-res bg-light border rounded-3">
+        <h1>Lista wyszukiwń</h1>
+        
+
+    </div>
+    <p></p>
+    <div class="pad-left-res bg-light border rounded-3">
+        <p></p>
+        <div class="container text-center">
+            <div class="row justify-content-md">
+                <div class="col col-lg-2">Tytuł</div>
+                <div class="col col-lg-2">Miasto</div>
+                <div class="col col-lg-2">Kategoria nieruchomość</div>
+                <div class="col col-lg-2">Pokoje</div>
+                <div class="col col-lg-2">Maks. cena za m2</div>
+                <div class="col col-lg-2">Powierzchnia</div>
+                <div class="col col-lg-2"><a href="{% url "searchingSettingsNew" %}"><button type="button" class="btn btn-primary">Dodaj nowe wyszukanie</button></a></div>
+            </div>
+            <hr>
+            {% for row in searchingSettingsList %}
+            
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-2">
+                    {{ row.title }}
+                </div>
+                <div class="col col-lg-2">
+                    {{ row.city }}
+                </div>
+                <div class="col col-lg-2">
+                    {{ row.category }}
+                </div>
+                <div class="col col-lg-2">
+                    {% if row.rooms is not 0 %}
+                        {{ row.rooms }}
+                    {% else %}
+                        nie dotyczy
+                    {% endif %}
+
+                </div>
+                <div class="col col-lg-2">
+                    {{ row.price }}
+                </div>
+                <div class="col col-lg-2">
+                    {{ row.area }}
+                </div>
+                <div class="col col-lg-2">
+                    <a href="{% url "searchingSettingsEdit" row.id %}"><button type="button" class="btn btn-primary">Edytuj</button></a>
+                    <a href="{% url "searchingSettingsDelete" row.id %}"><button type="button" class="btn btn-primary">Kasuj</button></a>
+                </div>
+            </div>
+            
+            <hr>
+            {% endfor %}
+        </div>
+
+        <p></p>
+{% endblock %}

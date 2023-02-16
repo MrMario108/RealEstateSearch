@@ -21,6 +21,11 @@ def olxSearch(request):
     return render(request, 'olxSearch/index.html', {'allRealEstates': advaresments})
 
 @login_required
+def change_pass(request):
+    return render(request, 'olxSearch/registration/password_change_form.html', {'allRealEstates': 0})
+
+
+@login_required
 def realEstateList(request):
     """ Real Estate list of loged user"""
 
@@ -30,10 +35,11 @@ def realEstateList(request):
     if len(searchingSettingsList) > 0:
     
         first = searchingSettingsList[0]
-        print(first.rooms)
+        print("znalazl wyszukiwanie", first.rooms)
         
         advaresments = Apartment.objects.filter(city = first.city, rooms = first.rooms, category = first.category, price__lte = first.price)
-
+        #advaresments = Apartment.objects.all()
+        
         return render(request, 'olxSearch/index.html', {'allRealEstates': advaresments, 'searchingSettingsList': searchingSettingsList})
 
     else:
@@ -130,13 +136,6 @@ def user_login(request):
         form = LoginForm()
 
     return render(request, 'olxSearch/login.html', {'form': form})
-
-
-# for deleting
-@login_required
-def dashboard(request):
-    """ Old function for deleting"""    
-    return render(request, 'olxSearch/dashboard.html', {'section': 'dashboard'})
 
 
 def register(request):

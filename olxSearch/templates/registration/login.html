@@ -4,27 +4,29 @@
 
 {% block content %}
     
-    <div class="pad-left-res bg-light border rounded-3 ">
-        <h1>Logowanie</h1>
+    <div class="input-form-parent bg-light border rounded-3 ">
+        <h1>Login</h1>
     </div>
     <p></p>
-    <div class="pad-left-res bg-light border rounded-3">
+    <div class="input-form-parent bg-light border rounded-3">
     
+        <div class="input-form">
         {% if form.errors %}
-            <p>Nazwa użytkownika lub hasło są nieprawidłowe. Spróbuj ponownie.</p>
+            <p>The username or password is incorrect. Check again.</p>
         {% else %}
-            <p>Wypełnij poniższy formularz, aby się zalogować:</p>
+            <p>Please complete the form below to login:</p>
         {% endif %}
     
-        <div class="login-form">
-            <form action="{% url 'login' %}" method="post">
-                <p><a href="{% url "password_reset" %}">Zapomniałeś hasła?</a></p>
+            <form class="" action="{% url 'login' %}" method="post">
+                <p><a href="{% url "password_reset" %}">Have you forgotten your password</a></p>
                 {{ form | crispy }}
                 {% csrf_token %}
                 
                 <input type="hidden" name="next" value="{{ next }}" />
                 <p></p>
-                <p><input type="submit" value="Zaloguj"></p>
+                <p><input type="submit" value="Login"></p>
             </form>
         </div>
+    </div>
+    
 {% endblock %}

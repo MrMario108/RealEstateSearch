@@ -1,12 +1,15 @@
 {% extends "olxSearch/base.html" %}
 
-{% block title %}Wylogowanie{% endblock %}
+{% block title %}Logout{% endblock %}
 
 {% block content %}
-    <div class="pad-left-res bg-light border rounded-3">
-        <h1>Wylogowanie</h1>
+
+    <div class="input-form-parent bg-light border rounded-3">
+        <h1>Logout</h1>
     </div>
     <p></p>
-    <div class="pad-left-res bg-light border rounded-3">
-        <p>Zostałeś pomyślnie wylogowany. Możesz <a href="{% url "login" %}">zalogować się ponownie</a>.</p>
+    <div class="input-form-parent bg-light border rounded-3">
+        <p>You have been successfully logged out. You can <a href="{% url "login" %}">login</a> again.</p>
+    </div>
+    
 {% endblock %}

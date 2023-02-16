@@ -3,43 +3,36 @@
 {% load static %}
 
 {% block content %}
-    <div class="pad-left-res bg-light border rounded-3">
-        <h1>Lista nieruchomości</h1>
-        {% for row in searchingSettingsList %}
-        <a href="{% url "realEstateListFiltered" row.id %}"><div class="col col-lg-2">{{ row.title }}</div></a>
-        {% endfor %}
-    </div>
-    <p></p>
-    <div class="pad-left-res pad-top-res bg-light border rounded-3">
 
-    <div class="pad-left-res container" width="90%">
-        
-        <div class="row">
-            {% if allRealEstates > 0 %}
-            {% for row in allRealEstates %}
-                <div class="col-md-4">
-                    <div class="card md-2 rounded-3">
-                        {% if row.link != "0" %}
-                            <a href="{{ row.link }}" class="">
-                        {% endif %}
-                            <img class="rounded-3" src="{{ row.pic }}" width="100%">
-                            </a>
+    {% if allRealEstates.count > 0 %}
+    {% for row in allRealEstates %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card md-2 rounded-3">
+                    {% if row.link != "0" %}
+                        <a href="{{ row.link }}" class="">
+                    {% endif %}
+                        <img class="rounded-3" src="{{ row.pic }}" width="100%">
+                        </a>
                         <div class="card-body">
-                            <h3 class="card-title">{{ row.title }}</h3>
-                            <p class="card-text">Miasto: {{ row.city }} zł</p>
-                            <p class="card-text">Rodzaj nieruchomości: {{ row.category }} zł</p>
-                            <p class="card-text">Cena: {{ row.price }} zł</p>
-                            <p class="card-text">Data publikacji: {{ row.date_published }}</p>
-                            <p class="card-text">Powierzchnia: {{ row.area }} m2</p>
-                            <p class="card-text">Pokoje: {{ row.rooms }}</p>
-                            <p class="card-text">Id: {{ row.advId }}</p>
-                        </div>
-                    </div>
-                    <p></p>
-                </div>
-            {% endfor %}
-            {% endif%}
-        </div>
-    </div>
+                        <h4 class="card-title">{{ row.title }}</h4>
+                        <ul class="card-text">
 
-    {% endblock %}
+                        <li>Miasto: {{ row.city }} zł</li>
+                        <li>Rodzaj nieruchomości: {{ row.category }} zł</li>
+                        <li>Cena: {{ row.price }} zł</li>
+                        <li>Data publikacji: {{ row.date_published }}</li>
+                        <li>Powierzchnia: {{ row.area }} m2</li>
+                        <li>Pokoje: {{ row.rooms }}</li>
+                        <li>Id: {{ row.advId }}</li>
+                    
+                        
+                        </ul>
+
+                    </div>
+                </div>
+                <p></p>
+            </div>
+        {% endfor %}
+    {% endif%}
+
+{% endblock %}

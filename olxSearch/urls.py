@@ -21,6 +21,7 @@ urlpatterns = [
     # path for Users edit, register
     path('register/', views.register, name='register'),
     path('edit/', views.edit, name='edit'),
+    path('change/', views.change_pass, name='change_pass'),
 
     # path for searching settings
     path('searchingSettingsNew/', views.searchingSettingsNewView, name='searchingSettingsNew'),

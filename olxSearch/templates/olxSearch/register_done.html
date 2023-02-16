@@ -1,12 +1,14 @@
 {% extends "olxSearch/base.html" %}
 
-{% block title %}Witaj{% endblock %}
+{% block title %}Accound created {% endblock %}
 
 {% block content %}
-    <div class="pad-left-res bg-light border rounded-3">
-        <h1>Witaj, {{ new_user.first_name }}!</h1>
+    <div class="input-form-parent bg-light border rounded-3">
+        <h1>Hello {{ new_user.first_name }}</h1>
     </div>
     <p></p>
-    <div class="pad-left-res bg-light border rounded-3">
-    <p>Twoje konto zostało utworzone. Możesz się już <a href="{% url "login" %}">zalogować</a>.</p>
+    <div class="input-form-parent bg-light border rounded-3">
+        <p>You can <a href="{% url "login" %}">login</a>.</p>
+    </div>
+    
 {% endblock %}

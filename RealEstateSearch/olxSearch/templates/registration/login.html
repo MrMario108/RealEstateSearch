@@ -19,7 +19,7 @@
     
             <form class="" action="{% url 'login' %}" method="post">
                 <p><a href="{% url "password_reset" %}">Have you forgotten your password</a></p>
-                {{ form | crispy }}
+                {{ form|crispy }}
                 {% csrf_token %}
                 
                 <input type="hidden" name="next" value="{{ next }}" />

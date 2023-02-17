@@ -1,7 +1,7 @@
 Real Estate Search
 
-Aplication looking for properties on the flip at olx.pl website
+Aplication for looking for real estate propertice in good price at polish websietes.
 
-It's only for practising my programing sciles.
+It's project for practice programing. 
 
-Not for buisness use.
+You can see how it work on 

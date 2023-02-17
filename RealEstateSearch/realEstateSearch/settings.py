@@ -12,20 +12,35 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+
+# my configuration
+
+API_URL = 'http://127.0.0.1:8000/olxSearch/api/searchingSettingsApi/'
+API_OLXSEARCH_URL = 'http://127.0.0.1:8000/olxSearch/api/olxSearch/'
+SCRAPING_URL_DEFAULT = f"""https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/ruda-slaska/?search%5bfilter_enum_rooms%5d%5b0%5d=one&search%5bfilter_float_price_per_m:to%5d=4000"""
+SCRAPING_URL_PARAM_DEFAULT = {'city':'ruda-slaska', 'category': 'mieszkania', 'rooms':1, 'price':4000}
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qg-5x_&r8lh&&9(tyug+ss(5)&d!kn3!$3jy0r31=r8^qhhu&r'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
-
+ALLOWED_HOSTS = []
+ALLOWED_HOSTS.extend(
+    filter(
+        None,
+        os.environ.get('ALLOWED_HOSTS', '').split(','),
+    )
+)
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,11 +51,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'crispy_bootstrap5',
     # my apps
     'olxSearch.apps.OlxSearchConfig',
     'scrapingApp.apps.ScrapingappConfig',
     'rest_framework',
-]
+    ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -83,8 +99,11 @@ WSGI_APPLICATION = 'realEstateSearch.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.environ.get('DB_HOST'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
     }
 }
 
@@ -111,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'pl'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Warsaw'
 
@@ -132,7 +151,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'    # drukuje ma
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/static/'
+MEDIA_URL = '/static/media/'
+
+MEDIA_ROOT = '/vol/web/media'
+STATIC_ROOT = '/vol/web/static'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -144,9 +170,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#MEDIA_ROOT = '/home/RealEstateSearch/rES/media'
-MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/RealEstateSearch/rES/static'
-STATIC_URL = '/static/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

@@ -1,7 +1,9 @@
 Real Estate Search
 
-Aplication for looking for real estate propertice in good price at polish websietes.
+The application is looking for real estate property at a reasonable price at polish websites.
 
-It's project for practice programing. 
+The first one it's olx.pl. In the future it will be more.
+
+It's a project for programming practice. 
 
 You can see how it work on 

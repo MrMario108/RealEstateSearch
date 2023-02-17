@@ -1,5 +1,6 @@
 Django==4.1.6
 psycopg2>=2.8.6,<2.9
+uWSGI>=2.0.19.1,<2.1
 django-crispy-forms==2.0
 crispy-bootstrap5==0.7
 Pillow==9.4.0

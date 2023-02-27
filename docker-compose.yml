@@ -1,13 +1,8 @@
 version: '3.12'
 
 services:
-  db:
-    image: postgres:13-alpine
-    environment:
-      - POSTGRES_DB=devdb
-      - POSTGRES_USER=devuser
-      - POSTGRES_PASSWORD=changeme
   app:
+    restart: unless-stopped
     build:
       context: .
     ports:
@@ -16,15 +11,54 @@ services:
       - ./RealEstateSearch:/RealEstateSearch
       - ./data/web:/vol/web
     environment:
+      - CELERY_BROKER_URL="redis://redis:6379/0"
+      - CELERY_RESULT_BACKEND="redis://redis:6379/0"
       - SECRET_KEY=devsecretkey
       - DEBUG=1
       - DB_HOST=db
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASS=changeme
+      - DB_PORT=5432
     depends_on:
       - db
     command:
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
+  worker:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    entrypoint: /scripts/worker-entrypoint.sh
+    volumes:
+      - static_volume:/RealEstateSearch/vol/web/static
+    environment:
+      DEBUG: 1
+      CELERY_BROKER_URL: "redis://redis:6379/0"
+      CELERY_RESULT_BACKEND: "redis://redis:6379/0"
+      DJANGO_DB: postgresql
+      POSTGRES_HOST: db
+      POSTGRES_NAME: devdb
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_PORT: 5432
+    depends_on:
+      - app
+      - redis
+  redis:
+    restart: unless-stopped
+    image: redis:7.0.5-alpine 
+    expose:
+      - 6379
+  db:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+
+volumes:
+    static_volume: {}
+    postgres_data: {}

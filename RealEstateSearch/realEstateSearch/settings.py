@@ -29,18 +29,13 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', "asdfasdfa35qw4l*je+m&ys5dv#zoy)0a2+x1!m8hx290_sx&0gh")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.environ.get('DEBUG', 0)))
+DEBUG = bool(int(os.environ.get('DEBUG', default=1)))
 
-ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "localhost","*"]
-ALLOWED_HOSTS.extend(
-    filter(
-        None,
-        os.environ.get('ALLOWED_HOSTS', '').split(','),
-    )
-)
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1').split(' ')
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -101,19 +96,13 @@ WSGI_APPLICATION = 'realEstateSearch.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get('DB_HOST'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
-        "PORT": int(os.environ.get("DB_PORT", "5432")),
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
-        #"ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        #"NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
-        #"USER": os.environ.get("SQL_USER", "user"),
-        #"PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
-        #"HOST": os.environ.get("SQL_HOST", "localhost"),
-        #"PORT": os.environ.get("SQL_PORT", "5432"),
 }
 
 
@@ -160,11 +149,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'    # drukuje ma
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/static/'
-MEDIA_URL = '/static/media/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_ROOT = '/vol/web/media'
-STATIC_ROOT = '/vol/web/static'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -175,31 +164,20 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 # celery broker and result
-CELERY_BROKER_URL = os.environ.get("BROKER_URL", "redis://localhost:6379/0")
-CELERY_RESULT_BACKEND = os.environ.get("RESULT_BACKEND", "redis://localhost:6379/0")
-
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEEZONE = 'Europe/Warsaw'
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://localhost:6379/0")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://localhost:6379/0")
 
 # email settings
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'm.majewski108@gmail.com'
-EMAIL_HOST_PASSWORD = 'obyysvjptrzddnzb' #'kgqlncrllmmpqvkk' #'oyytpleikpipretr' # stacjonarny 'kgqlncrllmmpqvkk'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-DEFAULT_FROM_EMAIL = 'Testing Celery sending email <m.majewski108@gmail.com>'
+EMAIL_HOST = os.environ.get('ENV_EMAIL_HOST','smtp.gmail.com')
+EMAIL_HOST_USER = os.environ.get('ENV_EMAIL_HOST_USER','your_mail@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('ENV_EMAIL_HOST_PASSWORD',  'your_code')
+EMAIL_PORT = os.environ.get('ENV_EMAIL_PORT' ,587)
+EMAIL_USE_TLS = bool(int(os.environ.get('ENV_EMAIL_USE_TLS', default=1)))
+EMAIL_USE_SSL = bool(int(os.environ.get('ENV_EMAIL_USE_SSL', default=0)))
+DEFAULT_FROM_EMAIL = os.environ.get("ENV_DEFAULT_FROM_EMAIL","Welcome to Real Estate Search. Contact us at <your_mail@gmail.com> if you don't want receved emails")
 
 # CELERY BEAT
-
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

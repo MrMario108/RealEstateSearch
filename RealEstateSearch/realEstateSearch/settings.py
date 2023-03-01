@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 
-ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "localhost","*"]
 ALLOWED_HOSTS.extend(
     filter(
         None,
@@ -52,10 +52,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_celery_beat',
+    'django_celery_results',
+    'rest_framework',
     # my apps
     'olxSearch.apps.OlxSearchConfig',
     'scrapingApp.apps.ScrapingappConfig',
-    'rest_framework',
     ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -106,6 +108,12 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASS'),
         "PORT": int(os.environ.get("DB_PORT", "5432")),
     }
+        #"ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        #"NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
+        #"USER": os.environ.get("SQL_USER", "user"),
+        #"PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        #"HOST": os.environ.get("SQL_HOST", "localhost"),
+        #"PORT": os.environ.get("SQL_PORT", "5432"),
 }
 
 
@@ -175,3 +183,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # celery broker and result
 CELERY_BROKER_URL = os.environ.get("BROKER_URL", "redis://localhost:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("RESULT_BACKEND", "redis://localhost:6379/0")
+
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEEZONE = 'Europe/Warsaw'
+
+# email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'm.majewski108@gmail.com'
+EMAIL_HOST_PASSWORD = 'obyysvjptrzddnzb' #'kgqlncrllmmpqvkk' #'oyytpleikpipretr' # stacjonarny 'kgqlncrllmmpqvkk'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'Testing Celery sending email <m.majewski108@gmail.com>'
+
+# CELERY BEAT
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

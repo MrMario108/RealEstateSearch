@@ -6,6 +6,7 @@ ENV PYTHONUNBUFFERED 1
 COPY ./requirements.txt /requirements.txt
 COPY ./RealEstateSearch /RealEstateSearch
 COPY ./scripts /scripts
+COPY ./.env.sample /.env.sample
 
 WORKDIR /RealEstateSearch
 EXPOSE 8000
@@ -22,6 +23,7 @@ RUN python -m venv /py && \
     mkdir -p /vol/web/media && \
     chown -R RealEstateSearch:RealEstateSearch /vol && \
     chmod -R 755 /vol && \
+    chmod -R 755 /.env.sample && \
     chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"

@@ -1,13 +1,16 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from .models import Apartment, Profile, SearchingSettings, City
-from rest_framework import viewsets
-from .serializer import ApartmentSerializer, SearchingSettingsSerializer
-from django.contrib.auth import authenticate, login
-from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm, SearchingSettingsForm
-from django.contrib.auth.decorators import login_required
-from django.utils import timezone
 from django.conf import settings
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
+from django.utils import timezone
+from rest_framework import viewsets
+
+from .forms import (LoginForm, ProfileEditForm, SearchingSettingsForm,
+                    UserEditForm, UserRegistrationForm)
+from .models import Apartment, Baba, City, Dziecko, Profile, SearchingSettings
+from .serializer import ApartmentSerializer, SearchingSettingsSerializer
 
 
 @login_required
@@ -176,8 +179,11 @@ def edit(request):
             return render(request, 'olxSearch/dashboard.html', {'section': 'dashboard'})
 
     else:
-        user_form = UserEditForm(instance=request.user)
-        profile_form = ProfileEditForm(instance=request.user.profile)
+        try:
+            user_form = UserEditForm(instance=request.user)
+            profile_form = ProfileEditForm(instance=request.user.profile)
+        except:
+            return render(request, 'olxSearch/dashboard.html', {'section': 'dashboard', 'info': 'You have to fill your profile first! Please contact with admin!'})
 
     return render(request,'olxSearch/edit.html',{'user_form': user_form,'profile_form': profile_form})
 
@@ -243,3 +249,8 @@ def searchingSettingsListView(request):
     searchingSettingsList = SearchingSettings.objects.filter(user__pk = request.user.id)
 
     return render(request,'olxSearch/searchingSettingsList.html',{'searchingSettingsList': searchingSettingsList})
+
+def default(request):
+    """ Default view """
+
+    return render(request, 'olxSearch/index.html')

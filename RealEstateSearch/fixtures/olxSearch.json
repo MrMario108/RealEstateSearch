@@ -1,0 +1,54 @@
+[
+  {
+    "model": "olxSearch.category",
+    "pk": 1,
+    "fields": {
+      "categoryName": "Mieszkania"
+    }
+  },
+  {
+    "model": "olxSearch.category",
+    "pk": 2,
+    "fields": {
+      "categoryName": "Domy"
+    }
+  },
+  {
+    "model": "olxSearch.city",
+    "pk": 1,
+    "fields": {
+      "slug": "warszawa",
+      "cityName": "Warszawa"
+    }
+  },
+  {
+    "model": "olxSearch.city",
+    "pk": 2,
+    "fields": {
+      "slug": "ruda-slaska",
+      "cityName": "Ruda Śląska"
+    }
+  },
+  {
+    "model": "olxSearch.city",
+    "pk": 3,
+    "fields": {
+      "slug": "krakow",
+      "cityName": "Kraków"
+    }
+  },
+  {
+    "model": "olxSearch.searchingSettings",
+    "pk": 1,
+    "fields": {
+      "title": "default searching settings",
+      "price": 300000,
+      "area": 50,
+      "category": 1,
+      "rooms": 2,
+      "city": 1,
+      "date_created": "2023-03-03 12:00",
+      "user": 1
+    }
+  }
+]

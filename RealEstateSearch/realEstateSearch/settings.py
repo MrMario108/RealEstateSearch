@@ -179,5 +179,3 @@ EMAIL_PORT = os.environ.get('ENV_EMAIL_PORT' ,587)
 EMAIL_USE_TLS = bool(int(os.environ.get('ENV_EMAIL_USE_TLS', default=1)))
 EMAIL_USE_SSL = bool(int(os.environ.get('ENV_EMAIL_USE_SSL', default=0)))
 DEFAULT_FROM_EMAIL = os.environ.get("ENV_DEFAULT_FROM_EMAIL","Welcome to Real Estate Search. Contact us at <your_mail@gmail.com> if you don't want receved emails")
-
-# CELERY BEAT

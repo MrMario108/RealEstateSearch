@@ -1,0 +1,69 @@
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-list
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-list
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 3 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 17
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 7
+Class: Scraper; method: execute; Returned date: requests len = 7
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper detail, name, len urls=  olx.pl-details 7
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-list
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-list
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 3 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 17
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 7
+Class: Scraper; method: execute; Returned date: requests len = 7
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper detail, name, len urls=  olx.pl-details 7
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  saveToDb
+Class: ; method: scraper; Returned date: msg = Start save detail to database, name, len urls= 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  saveToDb
+Class: ; method: scraper; Returned date: msg = Start save detail to database, name, len urls= 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  saveToDb
+Class: ; method: scraper; Returned date: msg = Start save detail to database, name, len urls= 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  saveToDb
+Class: ; method: scraper; Returned date: msg = Start save detail to database, name, len urls= 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  saveToDb
+Class: ; method: scraper; Returned date: msg = Start save detail to database, name, len urls= 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  saveToDb
+Class: ; method: scraper; Returned date: msg = Start save detail to database, name, len urls= 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Start scraper detail for url, url, params=  https://www.olx.pl/d/oferta/sprzedam-mieszkanie-warszawa-bialoleka-zeran-tbs-CID3-IDT1Qxd.html {'city': 'Warszawa', 'category': 'Mieszkania', 'rooms': 2, 'price': 7000, 'url': 'https://www.olx.pl/d/oferta/sprzedam-mieszkanie-warszawa-bialoleka-zeran-tbs-CID3-IDT1Qxd.html'}
+Class: ; method: downloader; Returned date: msg = , name=  olx.pl-details
+Class: ; method: scraper; Returned date: msg = Start scraper, name=  olx.pl-details
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Done scrap, name=  saveToDb
+Class: ; method: scraper; Returned date: msg = Start save detail to database, name, len urls= 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/sprzedam-mieszkanie-warszawa-bialoleka-zeran-tbs-CID3-IDT1Qxd.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}

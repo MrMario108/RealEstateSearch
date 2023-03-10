@@ -59,7 +59,7 @@ class SaveAdvDetailsOlx():
         return dbFromApi
 
 
-
+    @classmethod
     def postToRestApi(self, data):
         """ POST request to api to create a new found advertisements """
         

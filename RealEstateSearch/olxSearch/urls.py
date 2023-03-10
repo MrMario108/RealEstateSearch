@@ -27,6 +27,7 @@ urlpatterns = [
     path('default/', views.default, name='default'),
     #path('contact/', views.contact, name='contact'),
     path('contact/', TemplateView.as_view(template_name="olxSearch/contact.html"), name='contact'),
+    path('testScrap/', views.testScrapy, name='testScrap'),
 
     # path for searching settings
     path('searchingSettingsNew/', views.searchingSettingsNewView, name='searchingSettingsNew'),

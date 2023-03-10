@@ -15,8 +15,8 @@ import os
 
 # my configuration
 
-API_URL = 'http://127.0.0.1:8000/olxSearch/api/searchingSettingsApi/'
-API_OLXSEARCH_URL = 'http://127.0.0.1:8000/olxSearch/api/olxSearch/'
+API_URL = 'http://127.0.0.1:8000/api/searchingSettingsApi/'
+API_OLXSEARCH_URL = 'http://127.0.0.1:8000/api/olxSearch/'
 SCRAPING_URL_DEFAULT = f"""https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/ruda-slaska/?search%5bfilter_enum_rooms%5d%5b0%5d=one&search%5bfilter_float_price_per_m:to%5d=4000"""
 SCRAPING_URL_PARAM_DEFAULT = {'city':'ruda-slaska', 'category': 'mieszkania', 'rooms':1, 'price':4000}
 

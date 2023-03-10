@@ -9,9 +9,9 @@ from rest_framework import viewsets
 
 from .forms import (LoginForm, ProfileEditForm, SearchingSettingsForm,
                     UserEditForm, UserRegistrationForm)
-from .models import Apartment, Baba, City, Dziecko, Profile, SearchingSettings
+from .models import Apartment, City, Profile, SearchingSettings
 from .serializer import ApartmentSerializer, SearchingSettingsSerializer
-
+from scrapingApp.utils.worker import TestScrap
 
 @login_required
 def olxSearch(request):
@@ -254,3 +254,8 @@ def default(request):
     """ Default view """
 
     return render(request, 'olxSearch/index.html')
+
+def testScrapy(request):
+    """ Test scrapy """
+    testScrap = TestScrap.worker('olx.pl-list')
+    return render(request, 'olxSearch/index.html', {'testScrap': testScrap})

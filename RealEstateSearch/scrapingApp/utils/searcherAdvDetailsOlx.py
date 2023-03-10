@@ -1,4 +1,4 @@
-from scrapingAdvsOlx import ScrapingAdvsOlx
+from .scrapingAdvsOlx import ScrapingAdvsOlx
 import re
 from bs4 import BeautifulSoup
 # Classes looking for details. Input BeautifulSoup of one advertisement
@@ -33,7 +33,7 @@ class SearchAdvId(ScrapingAdvsOlx):
 
 class SearcherAdvDetailsOlx():
 
-
+    @classmethod
     def runScrapingAdvDetailsOlx(self, listOfAdvs, rooms, category, city):
         """Method with sets of complex methods to scrape all data from Advertisement"""
 

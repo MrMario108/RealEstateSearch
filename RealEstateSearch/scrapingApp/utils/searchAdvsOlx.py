@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-from scrapingAdvsOlx import ScrapingAdvsOlx
+from .scrapingAdvsOlx import ScrapingAdvsOlx
 
 
 class SearchAdvsOlx(ScrapingAdvsOlx):
@@ -10,10 +10,10 @@ class SearchAdvsOlx(ScrapingAdvsOlx):
         self.tableOfAds = ""
         super().__init__()
 
-    
-    def findTable(self, doc):
+    @classmethod
+    def findTable(self, htmlBody):
         """ Return parent div with all finded advertisements """
-        
+        doc = BeautifulSoup(htmlBody, "html.parser")
         print("findTable: Start")
         
         returnedTable = ""
@@ -34,11 +34,13 @@ class SearchAdvsOlx(ScrapingAdvsOlx):
         except:
             zeroTest = 0
             status = False
+            print("nie ma ogłoszeń na liście")
 
         if zeroTest > 0:
+            print('Są ogłoszenia na liście')
             self.tablesOfAds = doc.body.div.contents
             self.tablesOfAds = doc.find_all("div", class_="css-pband8")
-            
+            print("Len",len(self.tablesOfAds))
             for table in self.tablesOfAds:
                 if "Sprawdź ogłoszenia w większej odległości:" not in str(table.previous_sibling):
                     returnedTable +=str(table)
@@ -48,7 +50,7 @@ class SearchAdvsOlx(ScrapingAdvsOlx):
 
         return {'data': returnedTable, 'status': status}
 
-
+    @classmethod
     def findAdv(self, table):
         """ Create list of advertisements from a given html div """
 

@@ -5,36 +5,41 @@ from .saveAdvDetailsOlx import SaveAdvDetailsOlx
 from datetime import datetime
 
 class Scraper():
-    def execute(response, name, params):
-        scraps  = ""
-        requests = []
+    def __init__(self, portalName, scrapType) -> None:
+        self.portalName = portalName
+        self.scrapType = scrapType
 
-        if name == "olx.pl-list":
-            name, requeststemp = ScrapOlx.scrapLinks(response)
-            for request in requeststemp:
+    @classmethod
+    def fromPortalName(cls, portalName, scrapType):
+        return cls( portalName, scrapType)
+
+    def execute(self, requests, params):
+        scrapedDetail  = ""
+        response = []
+        print('\nClass: Scraper; method: execute; Starting; Returned date: requests len =',len(requests),"\n",file=open("log.txt", "a"))
+
+        if self.portalName == "olx" and self.scrapType == 0:
+            self.portalName, responseList = ScrapOlx.scrapLinks(requests)
+            for responseTemp in responseList:
                 updatedParams = params.copy()
-                updatedParams["url"] = request
-                requests.append(
+                updatedParams["url"] = responseTemp
+                response.append(
                     {
                         "params" : updatedParams,
-                        "url": request
+                        "url": responseTemp
                     }
                 )
-            print('Class: Scraper; method: execute; Returned date: requests len =',len(requests),file=open("log.txt", "a"))
-        elif name == "olx.pl-details":
-            scraps = ScrapOlx.scrapDetails(response, params)
-            name = "saveToDb"
-        elif name == "otodom.pl":
-            scraps = "" # ScrapOtodom.scrapDetails(response, params)
-            name = "saveToDb"
+            self.scrapType = 1
+        elif self.portalName == "olx" and self.scrapType == 1:
+            scrapedDetail = ScrapOlx.scrapDetails(requests, params)
+        elif self.portalName == "otodom" and self.scrapType == 0:
+            scrapedDetail = "" # ScrapOtodom.scrapDetails(response, params)
         else:
-            raise ValueError(f"Class:Scraper; method: execute; Message: Scraper name is not valid. Name= {name}")
+            raise ValueError(f"Class:Scraper; method: execute; Message: Scraper name is not valid. Name= {self.portalName}")
         
-        return scraps, name, requests
+        return scrapedDetail, self.portalName, response
 
 class ScrapOlx():
-    def __init__(self):
-        pass
     @classmethod
     def scrapDetails(self, response, params):
         """Method with sets of complex methods to scrape all data from sell advertisement"""
@@ -48,21 +53,24 @@ class ScrapOlx():
         categories = soup.body.find_all("li", {"data-testid":"breadcrumb-item"})
         categories = [i.find("a").text for i in categories]
 
+        print('ScrapLoger: \n', file=open("scrapLoger.txt", "a"))
+        print('\nScrapLoger: Scraped categories=', categories, file=open("scrapLoger.txt", "a"))
+
         # check again if category is real estate
         if "Nieruchomości" not in categories:
             print("Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories: ",categories, file=open("log.txt", "a"))
-            return ValueError("Category of this advartesment is not real estate")
-        
+            return False
+                
         # check again if category is correct with params what we looking for
         if params['category'] not in categories:  # for example "Mieszkania"
             print("Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not what we looking for; categories: ",categories, ";looking for: ", params['category'], file=open("log.txt", "a"))
-            return ValueError("Category of this advartesment is not what we looking for")
+            return False
 
         # check again if category is salles
         if "Sprzedaż" not in categories:  # for example "Mieszkania"
-            print("Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not what we looking for; categories: ",categories, ";looking for: Sprzedaż", file=open("log.txt", "a"))
-            return ValueError("Category of this advartesment is not what we looking for")
-        
+            print("Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not what we looking for; categories: ",categories, ";looking for: Sprzedaż", file=open("log.txt", "a"))            
+            return False
+
         # check again if city is what we looking for
         cityBool = False
         for city in categories:
@@ -72,30 +80,52 @@ class ScrapOlx():
                 break
         if cityBool == False:
             print("Class: ScrapOlx; method: scrapDetails; Returned date: msg = City is not what we looking for; categories: ",categories, ";looking for: ", params["city"], file=open("log.txt", "a"))
-            return ValueError("City of this advartesment is not what we looking for")
+            return False
         
         pic = soup.body.find(class_="swiper-zoom-container")
         pic = pic.find("img")["src"]
+
+        print('\nScrapLoger: Scraped url pic=', pic, file=open("scrapLoger.txt", "a"))
+        
         dataPosted = soup.body.find("span",{"data-cy":"ad-posted-at"}).string
         dataPosted = self.formatDate(dataPosted)
+        
+        print('\nScrapLoger: Scraped dataPosted=', dataPosted, file=open("scrapLoger.txt", "a"))
+
         title = soup.body.find("h1",{"data-cy":"ad_title"}).string
+        print('\nScrapLoger: Scraped title=', title, file=open("scrapLoger.txt", "a"))
+
         price = soup.body.find("div",{"data-testid":"ad-price-container"}).find("h3").strings
         price = [i for i in price]
         price = int(price[0].strip().replace(' ',''))
+        print('\nScrapLoger: Scraped price=', price, file=open("scrapLoger.txt", "a"))
+
         paramsGroup = soup.body.find_all("li",{"class":"css-1r0si1e"})
         paramsGroup = [i.find("p").text for i in paramsGroup]
-        ownerCategory = paramsGroup[0]
-        level = paramsGroup[2].split(" ")[1]
-        market = paramsGroup[4].split(" ")[1]
-        buildingType = paramsGroup[5].split(" ")[2]
-        area = paramsGroup[6].split(" ")
-        area = float(area[1].strip().replace(',','.'))
-        rooms = paramsGroup[7].split(" ")[2]
+        # paramsGroup has variable len 
+        print('\nScrapLoger: Scraped paramsGroup=', paramsGroup, file=open("scrapLoger.txt", "a"))
+        for param in paramsGroup:
+            catParam = param.split()
+            #print('ScrapLoger: Scraped catParam[0]=', catParam[0],"; ", file=open("scrapLoger.txt", "a"))
+            if catParam[0] == "Prywatne" or catParam[0] == "Prywatne":
+                ownerCategory = paramsGroup[0]
+            if catParam[0] == "Poziom:":
+                level = catParam[1]
+            if catParam[0] == "Rynek:":
+                market = catParam[1]
+            if catParam[0] == "Rodzaj":
+                buildingType = catParam[2]
+            if catParam[0] == "Powierzchnia:":
+                area = catParam[1]
+                area = float(area.replace(',','.'))
+            if catParam[0] == "Liczba":
+                rooms = catParam[2]
+            
         priceSquer = round(price//area)
         description = soup.body.find("div",{"data-cy":"ad-description"})
         id = soup.body.find("div",{"data-cy":"ad-footer-bar-section"}).find("span").strings
         id = [i for i in id if len(i) > 4]
-
+        # ['Prywatne', 'Cena za m²: 76.74 zł/m²', 'Poziom: 9', 'Umeblowane: Tak', 'Rynek: Pierwotny', 'Rodzaj zabudowy: Apartamentowiec', 'Powierzchnia: 43 m²', 'Liczba pokoi: 2 pokoje']
         scraps={
             "advId":    id[0],
             "link":     params['url'],
@@ -108,6 +138,8 @@ class ScrapOlx():
             "rooms":    rooms,
             "city":     params['city'],
         }
+        print('ScrapLoger: Finish values=', scraps,"; ", file=open("scrapLoger.txt", "a"))
+
         return scraps
 
     @classmethod
@@ -182,17 +214,19 @@ class ScrapOlx():
                         print('Class: ScrapOlx; method: scrapLinks; Returned date: msg = url error, url=', link, file=open("log.txt", "a"))
 
                         return False
+            else:
+                portalName = "otodom"
 
             if not "https" in link:
                 link = "https://www.olx.pl"+link
+                portalName = "olx"
+            
             links.append(link)
         
         with open('links.txt', 'w') as f:
             for link in links:
-                f.write(link)
-                f.write('\n')
-        name = "olx.pl-details"
-        return name, links
+                f.write(link+'\n')
+        return portalName, links
     
 
 

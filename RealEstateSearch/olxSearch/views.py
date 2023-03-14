@@ -6,12 +6,13 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from rest_framework import viewsets
-
+from datetime import datetime
 from .forms import (LoginForm, ProfileEditForm, SearchingSettingsForm,
                     UserEditForm, UserRegistrationForm)
 from .models import Apartment, City, Profile, SearchingSettings
 from .serializer import ApartmentSerializer, SearchingSettingsSerializer
-from scrapingApp.utils.worker import TestScrap
+#from scrapingApp.utils.worker import Starter
+from scrapingApp.utils.database import Database
 
 @login_required
 def olxSearch(request):
@@ -257,5 +258,20 @@ def default(request):
 
 def testScrapy(request):
     """ Test scrapy """
-    testScrap = TestScrap.worker('olx.pl-list')
-    return render(request, 'olxSearch/index.html', {'testScrap': testScrap})
+    serch={
+            "advId":    6,
+            "link":     'http://',
+            "pic":      'http://',
+            "title":    'Mieszkanie testowe ruda 3',
+            "price":    100,
+            "date_published": datetime.now(),
+            "area":     40,
+            "category": 'M',
+            "rooms":    1,
+            "city":     'ruda-slaska',
+        }
+    testScrap = Database.checkIfExists(serch).saveApartment()
+    test = Database(False, "")
+    test.delCategory()
+    
+    return render(request, 'olxSearch/index.html', {'testScrap': 'test'})

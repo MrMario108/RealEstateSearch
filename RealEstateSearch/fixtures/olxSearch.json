@@ -42,7 +42,7 @@
     "pk": 1,
     "fields": {
       "title": "default searching settings",
-      "price": 300000,
+      "price": 6000,
       "area": 50,
       "category": 1,
       "rooms": 2,

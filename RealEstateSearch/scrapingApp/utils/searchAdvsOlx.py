@@ -61,16 +61,3 @@ class SearchAdvsOlx(ScrapingAdvsOlx):
 
         print('findAdv: Returned date - len=',len(listOfAdvs))
         return listOfAdvs
-
-
-
-    # zabezpieczenie przed zerową ilością nieruchomości
-    #zeroTest = BeautifulSoup("""<div data-testid="total-count">Znaleźliśmy  12 ogłoszeń</div>""", "html.parser")
-    #print("findTable: zeroTest ==",zeroTest)
-    #
-    #zeroTest = zeroTest.find(text=re.compile(""))
-    #print("findTable: zeroTest 1=",zeroTest)
-    #
-    #patern = re.compile(r"\d+")
-    #zeroTest = patern.search(str(zeroTest))
-    #print("findTable: zeroTest 2=",zeroTest.group())

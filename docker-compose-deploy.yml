@@ -1,4 +1,4 @@
-version: '3.12'
+version: '3.8'
 
 services:
 
@@ -19,6 +19,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
+    image: real_estate_search_web
     command: /start
     volumes:
       - staticfiles:/app/staticfiles
@@ -37,6 +38,7 @@ services:
       - ./.env/.prod
 
   redis:
+    restart: unless-stopped
     image: redis:6-alpine
 
   rabbitmq:

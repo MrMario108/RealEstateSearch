@@ -4773,3 +4773,1131 @@ Class: ; method: scraper; Returned date: msg = Try to save detail to database; s
 Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
 Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
 Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004222 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227094 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304553 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306183 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1307211 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302537 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301824 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303328 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004222 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302913 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306183 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303328 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301448 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306835 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304177 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004597 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302537 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301448 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304177 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302952 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306577 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306835 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004597 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227094 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301824 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302952 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304553 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306835 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306577 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302912 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004596 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216891 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306201 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304553 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301448 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302537 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306835 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303328 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004596 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303328 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304552 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1307211 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302537 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301823 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306201 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004597 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1307209 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301446 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303328 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304176 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302913 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306575 
+
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004598 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302913 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304551 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303326 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301824 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306577 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306835 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004219 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306199 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303326 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1307209 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301822 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302535 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304176 
+
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004219 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306833 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301446 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306199 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304551 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1303326 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302911 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004220 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304552 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306199 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302950 
+
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302911 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306833 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301822 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+
+Class: ; method: worker; Start 
+
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5bfilter_enum_rooms%5d%5b0%5d=two&search%5bfilter_float_price_per_m:to%5d=6000
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 2004219 
+
+Class: ScrapOlx; method: scrapLinks; Returned date: soup-len = 2 Type=  <class 'bs4.BeautifulSoup'>
+Class: ScrapOlx; method: scrapLinks; Returned date: grid-len = 19
+Class: ScrapOlx; method: scrapLinks; Returned date: cards-len = 8
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-na-poddaszu-z-balkonem-ID4jn5B.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.otodom.pl/pl/oferta/mieszkanie-warszawa-bemowo-tbs-partycypacja-ID4kufN.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html
+Class: ; method: downloader; msg = Start, portalName=  olx ; url= https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 227096 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 216893 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+Class: ScrapOlx; method: scrapDetails; Returned date: msg = Category is not real estate; categories:  []
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1304552 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302951 
+
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306199 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1302912 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1301446 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+
+Class: ; method: scraper; Returned date: msg = Start scraper, worker_name=  olx
+
+Class: Scraper; method: execute; Starting; Returned date: requests len = 1306833 
+
+Class: ScrapOlx; method: scrapDetails; msg= Start scrap detail; 
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '809200371', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-bialoleka-zeran-CID3-IDSLjYT.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/wfmstc0ksgm5-PL/image;s=1000x667', 'title': 'Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)', 'price': 228000, 'date_published': datetime.datetime(2023, 1, 7, 0, 0), 'area': 44.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '801734722', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-warszawa-bielany-CID3-IDSfZPc.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/du1wz6rzg9rn3-PL/image;s=2016x1512', 'title': 'Odstąpię partycypacje TBS Warszawa Bielany', 'price': 279000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 51.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '815833363', 'link': 'https://www.olx.pl/d/oferta/mieszkanie-tbs-przepisanie-cesji-CID3-IDTd9vD.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4ts2rahi104f-PL/image;s=1200x1600', 'title': 'mieszkanie TBS przepisanie cesji', 'price': 250000, 'date_published': datetime.datetime(2023, 1, 18, 0, 0), 'area': 50.56, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '780807398', 'link': 'https://www.olx.pl/d/oferta/ladne-ustawne-mieszkanie-tbs-pow-52-m-2-pokoje-balkon-CID3-IDQQbFI.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/lxb8ax2gpkro2-PL/image;s=1270x968', 'title': 'ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.', 'price': 209000, 'date_published': datetime.datetime(2023, 1, 10, 0, 0), 'area': 54.0, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Kowalczyka (Białołęka - Żerań)>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypacje TBS Warszawa Bielany>]>
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: ; method: scraper; Returned date: msg = Try to save detail to database; scrap = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '747301220', 'link': 'https://www.olx.pl/d/oferta/tbs-bemowo-odsprzedaz-partycypacji-CID3-IDOzBbu.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/ac8vvry0n1yo2-PL/image;s=1000x750', 'title': 'TBS Bemowo - Odsprzedaż partycypacji', 'price': 248000, 'date_published': datetime.datetime(2023, 1, 21, 0, 0), 'area': 43.9, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; scrapedDetails = {'advId': '811792768', 'link': 'https://www.olx.pl/d/oferta/odstapie-partycypacje-tbs-kowalczyka-CID3-IDSVcnK.html', 'pic': 'https://ireland.apollo.olxcdn.com:443/v1/files/4vhc1t4xtjqx-PL/image;s=768x1024', 'title': 'Odstąpię partycypację TBS Kowalczyka', 'price': 160000, 'date_published': datetime.datetime(2023, 1, 6, 0, 0), 'area': 52.5, 'category': 'Mieszkania', 'rooms': '2', 'city': 'Warszawa'}
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: mieszkanie TBS przepisanie cesji>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: ŁADNE, USTAWNE mieszkanie TBS, pow. 52 m², 2 pokoje, balkon.>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: Odstąpię partycypację TBS Kowalczyka>]>
+Class: Database; method: checkIfExists; findedApartment = <QuerySet [<Apartment: TBS Bemowo - Odsprzedaż partycypacji>]>
+Class: Database; method: checkIfExists; len - findedApartment = 1
+Class: Database; method: checkIfExists; len - findedApartment = 1

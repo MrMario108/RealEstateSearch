@@ -15,6 +15,40 @@ class Worker():
         else:
             raise ValueError("No search parameters in database")
 
+    def sortParam(data):
+        """ Create list of single query parameters for create url to scraping. """
+        #allSearchParameters = SearchingSettings.objects.filter(category__categoryName ==)
+
+        queryParam = []
+        cities = set([x['city'] for x in data])
+        
+        print('sortParam: city=', cities)
+
+        category = {}
+        for city in cities:
+            category = set([x['category'] for x in data if x['city'] == city])
+        
+            print('sortParam: category=', category)
+
+            for cat in category:
+                rooms = set([x['rooms'] for x in data if x['category'] == cat and x['city'] == city])
+                
+                print('sortParam: rooms=', rooms)
+                
+                price = []
+                for room in rooms:
+                    price = [x['price'] for x in data if x['category'] == cat and x['rooms'] == room and x['city'] == city] 
+
+                    print('sortParam: price=', max(price))
+
+                    queryParam.append({'city':city, 'category': cat, 'rooms':room, 'price':max(price)})
+
+        print('sortParam: Dane wyjściowe:')
+        print(queryParam)
+
+        return queryParam
+
+
     def execute(self, allSearchParameters):
         """Create requests from search parameters"""
         # for toDo: sorting parameters by city, category, rooms, price to create smaller number of requests

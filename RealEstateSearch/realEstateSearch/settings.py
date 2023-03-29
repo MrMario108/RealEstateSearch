@@ -36,6 +36,49 @@ DEBUG = bool(int(os.environ.get('DEBUG', default=1)))
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1').split(' ')
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simpleRe': {
+            'format': "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+    },
+    'handlers': {
+        'file_celery': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/celeryInfo.log',
+            'formatter': 'simpleRe'
+        },
+        'file_info': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/info.log',
+            'formatter': 'simpleRe',
+        },
+        'file_debug': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/debug.log',
+            'formatter': 'simpleRe',
+        },
+ 
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file_info', 'file_debug'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+        'celeryLogger': {
+            'handlers': ['file_celery'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+    },
+}
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,27 +1,12 @@
 import requests
 import json
-
 from django.conf import settings
-# , flush=True command for printing statmants to web consol and log file
-# direct log file
-# https://www.pythonanywhere.com/user/aotdemouser/files/var/log/alwayson-log-837.log
-# console command to see online logs 
-# tail -f /var/log/alwayson-log-837.log
 
+class SaveScraperApartmentOlxApi():
 
-class SaveAdvDetailsOlx():
-    """ Create record in db """
     def __init__(self):
         self.dbFromApi = self.getFromRestApi()
     
-
-    def saveToFile(data, path="", filename='savedAdv.txt'):
-        
-        with open((path+filename), "a", encoding="utf-8") as file:
-            for adv in data:
-                file.write(str(adv) + "\n")
-        print("Saved in file", flush=True)
-
     def checkIsInDb(self, advToCheck):
         """ check if data is in database. if id is 0 it means that script does not find it. In this case it compare (price, rooms, link), but it is possible to have duplicates."""
 
@@ -102,21 +87,3 @@ class SaveAdvDetailsOlx():
                 print('postToRestApi: Already in database', flush=True)
         
         print("postToRestApi: posted", posted, 'advaresments')
-            
-# API pythonanywher
-# --------------------------------
-# import requests
-# username = 'RealEstateSearch'
-# token = '38c81ae3f829ccdcefbcba6e335d06af3a3f58c6'
-# 
-# response = requests.get(
-#     'https://www.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
-#         username=username
-#     ),
-#     headers={'Authorization': 'Token {token}'.format(token=token)}
-# )
-# if response.status_code == 200:
-#     print('CPU quota info:')
-#     print(response.content)
-# else:
-#     print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))

@@ -27,7 +27,7 @@ class RealEstate(models.Model):
     pic = models.CharField(max_length=300, default="")
     title = models.CharField(max_length=100, default="")
     price = models.FloatField(default=0.0)
-    # date_published = models.DateField('date published')
+    date_published2 = models.DateTimeField(default=timezone.now)
     date_published = models.CharField(max_length=50, default="")
     area = models.FloatField(default=0.0)
     category = models.ForeignKey(
@@ -38,11 +38,17 @@ class RealEstate(models.Model):
     class Meta:
         abstract = True
 
+class BuildingType(models.Model):
+    name = models.CharField(max_length=50, default='')
+
+    def __str__(self) -> str:
+        return self.name
 
 class Apartment(RealEstate):
 
     rooms = models.IntegerField(default=0)
-
+    buildingType = models.ForeignKey(
+        BuildingType, on_delete=models.CASCADE, related_name='realEstateBuildingType')
     def __str__(self) -> str:
         return self.title
 
@@ -75,12 +81,3 @@ class SearchingSettings(models.Model):
 
     class Meta:
         ordering = ['-date_created']
-
-class HtmlTagsNameToFind(models.Model):
-    # store name of html tags to find in html code
-
-    portalName = models.CharField(max_length=50, default="")
-    category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, related_name='HtmlTagsNameToFindCategory')
-    values = models.TextField(default="")
-    # urlPatern = models.TextField(default="")

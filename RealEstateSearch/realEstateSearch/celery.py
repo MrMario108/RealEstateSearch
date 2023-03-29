@@ -18,8 +18,8 @@ app.conf.beat_schedule ={
         'args' : ('dodatkowe dane z schedule',)
     },
     'scrap': {
-        'task': 'scrapingApp.tasks.startScrap',
-        'schedule': 60.0,
+        'task': 'scrapingApp.tasks.startScraperTasks',
+        'schedule': 15.0,
     },
 }
 

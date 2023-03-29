@@ -38,17 +38,24 @@
     }
   },
   {
-    "model": "olxSearch.searchingSettings",
+    "model": "olxSearch.buildingType",
     "pk": 1,
     "fields": {
-      "title": "default searching settings",
-      "price": 6000,
-      "area": 50,
-      "category": 1,
-      "rooms": 2,
-      "city": 1,
-      "date_created": "2023-03-03 12:00",
-      "user": 1
+      "name": "kamienica"
+    }
+  },
+  {
+    "model": "olxSearch.buildingType",
+    "pk": 2,
+    "fields": {
+      "name": "blok"
+    }
+  },
+  {
+    "model": "olxSearch.buildingType",
+    "pk": 3,
+    "fields": {
+      "name": "apartamentowiec"
     }
   }
 ]

@@ -89,9 +89,13 @@
                           <div class="savedSearches">
                               <h5>Saved searches</h5>
                               <ul class="list-unstyled">
-                              {% for row in searchingSettingsList %}
+                              {% if not searchingSettingsList %}
+                                <li>You have not saved searches</li>
+                              {% else %}
+                                {% for row in searchingSettingsList %}
                                 <li><a href="{% url "realEstateListFiltered" row.id %}">{{ row.title }}</a></li>
-                              {% endfor %}
+                                {% endfor %}
+                              {% endif %}
                               </ul>
                           </div>
                             

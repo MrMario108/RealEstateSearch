@@ -9,10 +9,13 @@ from rest_framework import viewsets
 from datetime import datetime
 from .forms import (LoginForm, ProfileEditForm, SearchingSettingsForm,
                     UserEditForm, UserRegistrationForm)
-from .models import Apartment, City, Profile, SearchingSettings
+from .models import Apartment, City, Profile, SearchingSettings, Category
 from .serializer import ApartmentSerializer, SearchingSettingsSerializer
 #from scrapingApp.utils.worker import Starter
-from scrapingApp.utils.database import Database
+from scrapingApp.tasks import startScraperTasks
+import logging
+
+logger = logging.getLogger('django')
 
 @login_required
 def olxSearch(request):
@@ -33,16 +36,12 @@ def change_pass(request):
 def realEstateList(request):
     """ Real Estate list of loged user"""
 
-    print('test wyswietlania')
     searchingSettingsList = SearchingSettings.objects.filter(user__pk = request.user.id)
     
     if len(searchingSettingsList) > 0:
     
         first = searchingSettingsList[0]
-        print("znalazl wyszukiwanie", first.rooms)
-        
         advaresments = Apartment.objects.filter(city = first.city, rooms = first.rooms, category = first.category, price__lte = first.price)
-        #advaresments = Apartment.objects.all()
         
         return render(request, 'olxSearch/index.html', {'allRealEstates': advaresments, 'searchingSettingsList': searchingSettingsList})
 
@@ -54,25 +53,17 @@ def realEstateList(request):
 def realEstateListFiltered(request, pk):
     """ Real Estate list of loged user"""
 
-    print('realEstateListFiltered: Start', pk)
     
     searchingSettingsList = SearchingSettings.objects.filter(pk = pk)
     
-    print('realEstateListFiltered: searchSettings - len = ', len(searchingSettingsList))
-
     if len(searchingSettingsList) > 0:
     
         first = searchingSettingsList[0]
-        print('realEstateListFiltered: ','city', first.city, 'rooms' ,first.rooms, 'category', first.category, 'price__lte' , first.price)
-        
         advaresments = Apartment.objects.filter(city = first.city, rooms = first.rooms, category = first.category) #, price__lte = first.price
-        
-        print('realEstateListFiltered: advaresments - len=', len(advaresments))
 
         return render(request, 'olxSearch/index.html', {'allRealEstates': advaresments, 'searchingSettingsList': searchingSettingsList})
 
     else:
-        print('realEstateListFiltered: not found advs')
         return render(request, 'olxSearch/index.html', {'allRealEstates': 0})
 
 
@@ -245,7 +236,6 @@ def searchingSettingsNewView(request):
 @login_required
 def searchingSettingsListView(request):
     """  Return a list of search settings for loged user"""
-    print('test ustawień z pliku', settings.API_URL)
 
     searchingSettingsList = SearchingSettings.objects.filter(user__pk = request.user.id)
 
@@ -258,20 +248,8 @@ def default(request):
 
 def testScrapy(request):
     """ Test scrapy """
-    serch={
-            "advId":    6,
-            "link":     'http://',
-            "pic":      'http://',
-            "title":    'Mieszkanie testowe ruda 3',
-            "price":    100,
-            "date_published": datetime.now(),
-            "area":     40,
-            "category": 'M',
-            "rooms":    1,
-            "city":     'ruda-slaska',
-        }
-    testScrap = Database.checkIfExists(serch).saveApartment()
-    test = Database(False, "")
-    test.delCategory()
-    
-    return render(request, 'olxSearch/index.html', {'testScrap': 'test'})
+
+    logger.info(str(datetime.now()) + "\t testScrap was runed")
+    startScraperTasks()
+
+    return render(request, 'olxSearch/index.html', {'testScrap': ['test',], 'allRealEstates':'', 'searchingSettingsList':[]})

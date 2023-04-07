@@ -74,7 +74,7 @@ class SearchingSettings(models.Model):
     rooms = models.IntegerField(validators=[MinValueValidator(0)], default=0, blank=True, null=True)
     city = models.ForeignKey(
         City, on_delete=models.CASCADE, related_name='searchingSettingCity')
-    date_created = models.DateTimeField(verbose_name='Date of created SearchSettings', default=timezone.now())
+    date_created = models.DateTimeField(verbose_name='Date of created SearchSettings', default=timezone.now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

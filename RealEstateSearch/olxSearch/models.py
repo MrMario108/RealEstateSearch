@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 
 # Create your models here.
 
@@ -26,10 +27,10 @@ class RealEstate(models.Model):
     link = models.CharField(max_length=200, default="#")
     pic = models.CharField(max_length=300, default="")
     title = models.CharField(max_length=100, default="")
-    price = models.FloatField(default=0.0)
+    price = models.FloatField(validators=[MinValueValidator(0.0)], default=0.0)
     date_published2 = models.DateTimeField(default=timezone.now)
     date_published = models.CharField(max_length=50, default="")
-    area = models.FloatField(default=0.0)
+    area = models.FloatField(validators=[MinValueValidator(0.0)], default=0.0)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='realEstateCategory')
     city = models.ForeignKey(
@@ -67,13 +68,13 @@ class Profile(models.Model):
 class SearchingSettings(models.Model):
     title = models.CharField(max_length=100, default="")
     price = models.IntegerField(default=0)
-    area = models.IntegerField(default=0)
+    area = models.IntegerField(validators=[MinValueValidator(0)],default=0)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='searchingSettingCategory')
-    rooms = models.IntegerField(default=0, blank=True, null=True)
+    rooms = models.IntegerField(validators=[MinValueValidator(0)], default=0, blank=True, null=True)
     city = models.ForeignKey(
         City, on_delete=models.CASCADE, related_name='searchingSettingCity')
-    date_created = models.DateTimeField(default=timezone.now)
+    date_created = models.DateTimeField(verbose_name='Date of created SearchSettings', default=timezone.now())
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

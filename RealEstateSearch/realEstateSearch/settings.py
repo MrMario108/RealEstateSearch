@@ -20,13 +20,8 @@ API_OLXSEARCH_URL = 'http://127.0.0.1:8000/api/olxSearch/'
 SCRAPING_URL_DEFAULT = f"""https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/ruda-slaska/?search%5bfilter_enum_rooms%5d%5b0%5d=one&search%5bfilter_float_price_per_m:to%5d=4000"""
 SCRAPING_URL_PARAM_DEFAULT = {'city':'ruda-slaska', 'category': 'mieszkania', 'rooms':1, 'price':4000}
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', "asdfasdfa35qw4l*je+m&ys5dv#zoy)0a2+x1!m8hx290_sx&0gh")

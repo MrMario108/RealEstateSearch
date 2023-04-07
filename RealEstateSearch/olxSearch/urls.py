@@ -35,7 +35,3 @@ urlpatterns = [
     path('searchingSettingsDelete/<int:pk>/', views.searchingSettingsDeleteView, name='searchingSettingsDelete'),
     path('searchingSettingsEdit/<int:pk>/', views.searchingSettingsEditView, name='searchingSettingsEdit'),
 ]
-
-    #path('<int:pk>', views.realEstatesDetails, name='realEstatesDetails'),
-    #path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-

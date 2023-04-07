@@ -1,6 +1,5 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-import slugify
 from bs4 import BeautifulSoup
 import logging
 from olxSearch.models import City, Apartment, Category
@@ -279,9 +278,8 @@ class OLXCreateUrlsFromParameters(AbstractsCreateUrlsFromParameters):
             0 : ""
         }
         for param in self.searchParameters:
-            print("OLXCreateUrlsFromParameters; searchParameters =",self.searchParameters)
-            #url = f"""https://www.olx.pl/d/nieruchomosci/{param.category}/sprzedaz/{slugify(param.city)}/?search%5Bfilter_enum_rooms%5D%5B0%5D={roomsDict[param.rooms]}&search%5Bfilter_float_price_per_m:to%5D={param.price}""".lower()
-            #self.urlsList.append(url)
+            url = f"""https://www.olx.pl/nieruchomosci/{param["category__categoryName"].lower()}/sprzedaz/{param["city__slug"].replace("_", "-")}/?search%5Bfilter_float_m:to%5D={param["area"]}&search%5Bfilter_enum_rooms%5D%5B0%5D={roomsDict[param["rooms"]]}&search%5Bfilter_float_price_per_m:to%5D={param["price"]}"""
+            self.urlsList.append(url)
 
     def get(self) -> list:
         return self.urlsList

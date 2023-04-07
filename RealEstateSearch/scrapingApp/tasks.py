@@ -15,26 +15,24 @@ def getGroupedSearchParameters() -> list:
     """ Groups parameters to limit the number of web pages scraped and the number of properties found """
 
     category = Category.objects.all()
-    city = City.objects.all()
+    cities = City.objects.all()
     groupedSearchParameters = []
     for cat in category:
-        for cit in city:
-                selectedParameters = SearchingSettings.objects.filter(category__categoryName = cat.categoryName, city__cityName = cit.cityName).values('area', 'rooms', 'price', 'city__cityName', 'category')
+        for city in cities:
+                selectedParameters = SearchingSettings.objects.filter(category__categoryName = cat.categoryName, city__slug = city.slug).values('area', 'rooms', 'price', 'city__slug', 'category__categoryName')
                 logger.info("getGroupedSearchParameters; selectedParameters: " + str(selectedParameters))
                 maxPrice = selectedParameters.aggregate(Max('price'))
                 logger.info("getGroupedSearchParameters; maxPrice: " + str(maxPrice))
                 if (maxPrice['price__max'] != None):
-                    singleSearchParameter = createSingleSearchParametersFrom(list(selectedParameters), maxPrice)
+                    singleSearchParameter = joinSingleSearchParametersFrom(list(selectedParameters), maxPrice)
                     groupedSearchParameters.append(singleSearchParameter)
     
     logger.info("getGroupedSearchParameters; : ")
     
     return groupedSearchParameters
 
-def createSingleSearchParametersFrom(selectedParameters, maxPrice):
-    """ Creates a single set of parameters from a group of parameters """
+def joinSingleSearchParametersFrom(selectedParameters, maxPrice):
     selectedParameters[0]["price"] = maxPrice['price__max']
-    #selectedParameters[0]["city"] = selectedParameters[0]["city_id"]
     return selectedParameters[0]
 
 @shared_task(bind=True)
@@ -60,17 +58,12 @@ def getScraperInstanceBy(scraperName: str) -> AbstractScraper:
 
 @shared_task(bind=True)
 def prepareScraperTask(self, scraperName: str) -> None:
-    logger.info("In prepareScraperTask: Value of scraperName: "+ str(scraperName))
     scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
-    logger.info("In prepareScraperTask: after getInstance")
     searchParameters = getGroupedSearchParameters()
-    logger.info("In prepareScraperTask: after searchParameters" + str(searchParameters))
 
-    print("prepareScraperTask; searchParameters: " + str(searchParameters))
     urls = scraperInstance.createUrlsFrom(searchParameters).get()
 
     for url in urls:
-        logger.info("In prepareScraper loop: Type of urls: ; Type of scraperName")
         scraperLinksTask.delay(url, scraperName)
 
 
@@ -80,7 +73,7 @@ def scraperLinksTask(self, url,  scraperName: str) -> None:
     
     # for testing
     #htmlString = downloadHtml.delay(url)
-    with open("olx-list.html", "r", encoding="utf-8") as f:
+    with open("scrapingApp/tests/olx-list.html", "r", encoding="utf-8") as f:
         htmlString = f.read()
 
     urls = scraperInstance.scrapLinks(htmlString).execute()
@@ -99,7 +92,7 @@ def scrapDetailsTask(self, url,  scraperName: str) -> None:
     scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
     # for testing
     #htmlString = downloadHtml.delay(url)
-    with open("olx-detail.html", "r", encoding="utf-8") as f:
+    with open("scrapingApp/tests/olx-detail.html", "r", encoding="utf-8") as f:
         htmlString = f.read()
 
     realEstateDetails = scraperInstance.scrapDetails(htmlString).execute()

@@ -1,10 +1,12 @@
+import logging
+
+import requests
 from celery import shared_task
 
 from .utils.abstractScraper import AbstractScraper
 from .utils.saveScraper import SaveApartment
 from olxSearch.models import SearchingSettings, Category, City
 from django.db.models import Max
-from django.utils import settings
 
 logger = logging.getLogger('celeryLogger')
 
@@ -43,20 +45,72 @@ class GroupedSearchParameters():
         if (maxPrice['price__max'] != None):
             return self.joinSingleSearchParametersFrom(list(selectedParameters), maxPrice)
 
+def saveRealEstateDetails(self, realEstateDetails):
+    SaveApartment.checkIfExists(realEstateDetails).tryToSave()
+
 
 @shared_task(bind=True)
-def send_mail_func(self, data = None):
-    users = get_user_model().objects.all()
-    for user in users:
-        print(user.email)
-        mail_subject = 'Hi! Celery testing'
-        message = 'data scedule from RealEstateSearch'
-        to_email = user.email
-        send_mail(
-            subject=mail_subject,
-            message=message,
-            from_email= local.EMAIL_HOST_USER,
-            recipient_list=[to_email],
-            fail_silently=False
-        )
-    return "Done"
+def downloadHtml(self, url) -> str:
+    session = requests.Session()
+    response = session.get(url, timeout=5)
+    if response.status_code == 200:
+        return response.text
+
+
+def getScraperInstanceBy(scraperName: str) -> AbstractScraper:
+    for portalNameClass in AbstractScraper.__subclasses__():
+        if portalNameClass.__name__ == scraperName:
+            scraperInstance = portalNameClass()
+            break
+    return scraperInstance
+
+
+@shared_task(bind=True)
+def prepareScraperTask(self, scraperName: str) -> None:
+    scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
+    searchParameters = GroupedSearchParameters().get()
+    urls = scraperInstance.createUrlsFrom(searchParameters).get()
+
+    for url in urls:
+        scraperLinksTask.delay(url, scraperName)
+
+
+@shared_task(bind=True)
+def scraperLinksTask(self, url,  scraperName: str) -> None:
+    scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
+    
+    # for testing
+    #htmlString = downloadHtml.delay(url)
+    with open("scrapingApp/tests/olx-list.html", "r", encoding="utf-8") as f:
+        htmlString = f.read()
+
+    urls = scraperInstance.scrapLinks(htmlString).execute()
+    
+    logger.info("In scraperLinksTask: Value of scraped urls: "+ str(urls)+ "; Typ of urls"+str(type(urls))+ "; Value of scraperName" +str(scraperName))
+
+    for url in urls:
+        logger.info("In scraperLinksTask loop: Value of url: "+ str(url)+ "; Value of scraperName" +str(scraperName))
+        scrapDetailsTask.delay(url, scraperName)
+
+
+@shared_task(bind=True)
+def scrapDetailsTask(self, url,  scraperName: str) -> None:
+    logger.info("In scrapDetailsTask: Value of url: "+ str(url)+ "; Value of scraperName" +str(scraperName))
+    
+    scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
+    # for testing
+    #htmlString = downloadHtml.delay(url)
+    with open("scrapingApp/tests/olx-detail.html", "r", encoding="utf-8") as f:
+        htmlString = f.read()
+
+    realEstateDetails = scraperInstance.scrapDetails(htmlString).execute()
+    
+    saveRealEstateDetails.delay(realEstateDetails)
+
+
+@shared_task(bind=True)
+def startScraperTasks(self):
+    i =0
+    for portalNameClass in AbstractScraper.__subclasses__():
+        logger.info("Start scrap task: "+str(i) + str(portalNameClass.__name__))
+        prepareScraperTask.delay(portalNameClass.__name__)

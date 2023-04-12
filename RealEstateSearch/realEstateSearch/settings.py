@@ -15,18 +15,13 @@ import os
 
 # my configuration
 
-API_URL = 'http://127.0.0.1:8000/olxSearch/api/searchingSettingsApi/'
-API_OLXSEARCH_URL = 'http://127.0.0.1:8000/olxSearch/api/olxSearch/'
+API_URL = 'http://127.0.0.1:8000/api/searchingSettingsApi/'
+API_OLXSEARCH_URL = 'http://127.0.0.1:8000/api/olxSearch/'
 SCRAPING_URL_DEFAULT = f"""https://www.olx.pl/d/nieruchomosci/mieszkania/sprzedaz/ruda-slaska/?search%5bfilter_enum_rooms%5d%5b0%5d=one&search%5bfilter_float_price_per_m:to%5d=4000"""
 SCRAPING_URL_PARAM_DEFAULT = {'city':'ruda-slaska', 'category': 'mieszkania', 'rooms':1, 'price':4000}
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', "asdfasdfa35qw4l*je+m&ys5dv#zoy)0a2+x1!m8hx290_sx&0gh")
@@ -36,6 +31,49 @@ DEBUG = bool(int(os.environ.get('DEBUG', default=1)))
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1').split(' ')
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simpleRe': {
+            'format': "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+    },
+    'handlers': {
+        'file_celery': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/celeryInfo.log',
+            'formatter': 'simpleRe'
+        },
+        'file_info': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/info.log',
+            'formatter': 'simpleRe',
+        },
+        'file_debug': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs/debug.log',
+            'formatter': 'simpleRe',
+        },
+ 
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file_info', 'file_debug'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+        'celeryLogger': {
+            'handlers': ['file_celery'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+    },
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -179,5 +217,3 @@ EMAIL_PORT = os.environ.get('ENV_EMAIL_PORT' ,587)
 EMAIL_USE_TLS = bool(int(os.environ.get('ENV_EMAIL_USE_TLS', default=1)))
 EMAIL_USE_SSL = bool(int(os.environ.get('ENV_EMAIL_USE_SSL', default=0)))
 DEFAULT_FROM_EMAIL = os.environ.get("ENV_DEFAULT_FROM_EMAIL","Welcome to Real Estate Search. Contact us at <your_mail@gmail.com> if you don't want receved emails")
-
-# CELERY BEAT

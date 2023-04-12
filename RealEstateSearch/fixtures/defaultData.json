@@ -1,0 +1,61 @@
+[
+  {
+    "model": "olxSearch.category",
+    "pk": 1,
+    "fields": {
+      "categoryName": "Mieszkania"
+    }
+  },
+  {
+    "model": "olxSearch.category",
+    "pk": 2,
+    "fields": {
+      "categoryName": "Domy"
+    }
+  },
+  {
+    "model": "olxSearch.city",
+    "pk": 1,
+    "fields": {
+      "slug": "warszawa",
+      "cityName": "Warszawa"
+    }
+  },
+  {
+    "model": "olxSearch.city",
+    "pk": 2,
+    "fields": {
+      "slug": "ruda-slaska",
+      "cityName": "Ruda Śląska"
+    }
+  },
+  {
+    "model": "olxSearch.city",
+    "pk": 3,
+    "fields": {
+      "slug": "krakow",
+      "cityName": "Kraków"
+    }
+  },
+  {
+    "model": "olxSearch.buildingType",
+    "pk": 1,
+    "fields": {
+      "name": "kamienica"
+    }
+  },
+  {
+    "model": "olxSearch.buildingType",
+    "pk": 2,
+    "fields": {
+      "name": "blok"
+    }
+  },
+  {
+    "model": "olxSearch.buildingType",
+    "pk": 3,
+    "fields": {
+      "name": "apartamentowiec"
+    }
+  }
+]

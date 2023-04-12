@@ -1,14 +1,21 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from .models import Apartment, Profile, SearchingSettings, City
-from rest_framework import viewsets
-from .serializer import ApartmentSerializer, SearchingSettingsSerializer
-from django.contrib.auth import authenticate, login
-from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm, SearchingSettingsForm
-from django.contrib.auth.decorators import login_required
-from django.utils import timezone
 from django.conf import settings
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
+from django.utils import timezone
+from rest_framework import viewsets
+from datetime import datetime
+from .forms import (LoginForm, ProfileEditForm, SearchingSettingsForm,
+                    UserEditForm, UserRegistrationForm)
+from .models import Apartment, City, Profile, SearchingSettings, Category
+from .serializer import ApartmentSerializer, SearchingSettingsSerializer
+#from scrapingApp.utils.worker import Starter
+from scrapingApp.tasks import startScraperTasks
+import logging
 
+logger = logging.getLogger('django')
 
 @login_required
 def olxSearch(request):
@@ -29,16 +36,12 @@ def change_pass(request):
 def realEstateList(request):
     """ Real Estate list of loged user"""
 
-    print('test wyswietlania')
     searchingSettingsList = SearchingSettings.objects.filter(user__pk = request.user.id)
     
     if len(searchingSettingsList) > 0:
     
         first = searchingSettingsList[0]
-        print("znalazl wyszukiwanie", first.rooms)
-        
         advaresments = Apartment.objects.filter(city = first.city, rooms = first.rooms, category = first.category, price__lte = first.price)
-        #advaresments = Apartment.objects.all()
         
         return render(request, 'olxSearch/index.html', {'allRealEstates': advaresments, 'searchingSettingsList': searchingSettingsList})
 
@@ -50,25 +53,17 @@ def realEstateList(request):
 def realEstateListFiltered(request, pk):
     """ Real Estate list of loged user"""
 
-    print('realEstateListFiltered: Start', pk)
     
     searchingSettingsList = SearchingSettings.objects.filter(pk = pk)
     
-    print('realEstateListFiltered: searchSettings - len = ', len(searchingSettingsList))
-
     if len(searchingSettingsList) > 0:
     
         first = searchingSettingsList[0]
-        print('realEstateListFiltered: ','city', first.city, 'rooms' ,first.rooms, 'category', first.category, 'price__lte' , first.price)
-        
         advaresments = Apartment.objects.filter(city = first.city, rooms = first.rooms, category = first.category) #, price__lte = first.price
-        
-        print('realEstateListFiltered: advaresments - len=', len(advaresments))
 
         return render(request, 'olxSearch/index.html', {'allRealEstates': advaresments, 'searchingSettingsList': searchingSettingsList})
 
     else:
-        print('realEstateListFiltered: not found advs')
         return render(request, 'olxSearch/index.html', {'allRealEstates': 0})
 
 
@@ -176,8 +171,11 @@ def edit(request):
             return render(request, 'olxSearch/dashboard.html', {'section': 'dashboard'})
 
     else:
-        user_form = UserEditForm(instance=request.user)
-        profile_form = ProfileEditForm(instance=request.user.profile)
+        try:
+            user_form = UserEditForm(instance=request.user)
+            profile_form = ProfileEditForm(instance=request.user.profile)
+        except:
+            return render(request, 'olxSearch/dashboard.html', {'section': 'dashboard', 'info': 'You have to fill your profile first! Please contact with admin!'})
 
     return render(request,'olxSearch/edit.html',{'user_form': user_form,'profile_form': profile_form})
 
@@ -238,8 +236,20 @@ def searchingSettingsNewView(request):
 @login_required
 def searchingSettingsListView(request):
     """  Return a list of search settings for loged user"""
-    print('test ustawień z pliku', settings.API_URL)
 
     searchingSettingsList = SearchingSettings.objects.filter(user__pk = request.user.id)
 
     return render(request,'olxSearch/searchingSettingsList.html',{'searchingSettingsList': searchingSettingsList})
+
+def default(request):
+    """ Default view """
+
+    return render(request, 'olxSearch/index.html')
+
+def testScrapy(request):
+    """ Test scrapy """
+
+    logger.info(str(datetime.now()) + "\t testScrap was runed")
+    startScraperTasks()
+
+    return render(request, 'olxSearch/index.html', {'testScrap': ['test',], 'allRealEstates':'', 'searchingSettingsList':[]})

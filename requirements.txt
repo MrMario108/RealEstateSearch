@@ -26,6 +26,9 @@ tzdata==2022.6
 urllib3==1.26.12
 markdown
 django-filter
-
 gunicorn==20.1.0
 uvicorn[standard]==0.18.2
+faker==18.3.1
+factory-boy==3.2.1
+pytest_django==4.5.2
+pytest-cov==4.0.0

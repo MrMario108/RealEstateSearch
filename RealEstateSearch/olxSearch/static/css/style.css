@@ -18,3 +18,9 @@
   display: flex;
 
 }
+
+.shadow{
+  -webkit-box-shadow: -28px 30px 29px 17px rgba(66, 68, 90, 1);
+-moz-box-shadow: -28px 30px 29px 17px rgba(66, 68, 90, 1);
+box-shadow: -28px 30px 29px 17px rgba(66, 68, 90, 1);
+}

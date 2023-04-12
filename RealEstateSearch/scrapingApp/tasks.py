@@ -10,30 +10,41 @@ from django.db.models import Max
 
 logger = logging.getLogger('celeryLogger')
 
-
-def getGroupedSearchParameters() -> list:
-    """ Groups parameters to limit the number of web pages scraped and the number of properties found """
-
-    category = Category.objects.all()
-    cities = City.objects.all()
-    groupedSearchParameters = []
-    for cat in category:
-        for city in cities:
-                selectedParameters = SearchingSettings.objects.filter(category__categoryName = cat.categoryName, city__slug = city.slug).values('area', 'rooms', 'price', 'city__slug', 'category__categoryName')
-                logger.info("getGroupedSearchParameters; selectedParameters: " + str(selectedParameters))
-                maxPrice = selectedParameters.aggregate(Max('price'))
-                logger.info("getGroupedSearchParameters; maxPrice: " + str(maxPrice))
-                if (maxPrice['price__max'] != None):
-                    singleSearchParameter = joinSingleSearchParametersFrom(list(selectedParameters), maxPrice)
-                    groupedSearchParameters.append(singleSearchParameter)
+class GroupedSearchParameters():
     
-    logger.info("getGroupedSearchParameters; : ")
-    
-    return groupedSearchParameters
+    def get(self) -> list:
+        """ Groups parameters to limit the number of web pages scraped and the number of properties found """
+        groupedSearchParameters = []
+        category = Category.objects.all()
+        cities = City.objects.all()
+        
+        for cat in category:
+            for city in cities:
+                finded = self.findMaxPrice(cat, city)
+                if finded != None:
+                    groupedSearchParameters.append(finded)
 
-def joinSingleSearchParametersFrom(selectedParameters, maxPrice):
-    selectedParameters[0]["price"] = maxPrice['price__max']
-    return selectedParameters[0]
+        logger.info("getGroupedSearchParameters; returned values: "+ str(groupedSearchParameters))
+
+        return groupedSearchParameters
+
+    def joinSingleSearchParametersFrom(self, selectedParameters, maxPrice):
+
+        selectedParameters[0]["price"] = maxPrice['price__max']
+        logger.info("joinSingleSearchParametersFrom: " + str(selectedParameters[0]))
+        return selectedParameters[0]
+
+    def findPricesForCategoryAndCity(self, category, city):
+        return SearchingSettings.objects.filter(category__categoryName = category.categoryName, city__slug = city.slug).values('area', 'rooms', 'price', 'city__slug', 'category__categoryName')
+
+    def findMaxPrice(self, category, city):
+        selectedParameters = self.findPricesForCategoryAndCity(category, city)
+        logger.info("getGroupedSearchParameters; selectedParameters: " + str(selectedParameters))
+        maxPrice = selectedParameters.aggregate(Max('price'))
+        logger.info("getGroupedSearchParameters; maxPrice: " + str(maxPrice))
+        if (maxPrice['price__max'] != None):
+            return self.joinSingleSearchParametersFrom(list(selectedParameters), maxPrice)
+
 
 @shared_task(bind=True)
 def saveRealEstateDetails(self, realEstateDetails):
@@ -59,8 +70,7 @@ def getScraperInstanceBy(scraperName: str) -> AbstractScraper:
 @shared_task(bind=True)
 def prepareScraperTask(self, scraperName: str) -> None:
     scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
-    searchParameters = getGroupedSearchParameters()
-
+    searchParameters = GroupedSearchParameters().get()
     urls = scraperInstance.createUrlsFrom(searchParameters).get()
 
     for url in urls:

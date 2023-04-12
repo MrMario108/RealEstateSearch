@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 import logging
 from olxSearch.models import City, Apartment, Category
 from datetime import datetime
+from django.utils.text import slugify
 
-logger = logging.getLogger('django')
+logger = logging.getLogger('celeryLogger')
 
 class AbstractScraper(ABC):
 
@@ -14,7 +15,7 @@ class AbstractScraper(ABC):
         pass
 
     @abstractmethod
-    def scrapDetails(self, htmlString) -> AbstractsSrapDetails:
+    def scrapDetails(self, htmlString) -> AbstractsScrapDetails:
         pass
 
     @abstractmethod
@@ -24,10 +25,10 @@ class AbstractScraper(ABC):
 class OLX_Scraper(AbstractScraper):
 
     def scrapLinks(self, htmlString) -> AbstractsSrapLinks:
-        return OLXSrapLinks(htmlString)
+        return OLXScrapLinks(htmlString)
 
-    def scrapDetails(self, htmlString) -> AbstractsSrapDetails:
-        return OLXSrapDetails(htmlString)
+    def scrapDetails(self, htmlString) -> AbstractsScrapDetails:
+        return OLXScrapLinks(htmlString)
     
     def createUrlsFrom(self, searchParameters) -> AbstractsCreateUrlsFromParameters:
         return OLXCreateUrlsFromParameters(searchParameters)
@@ -53,20 +54,22 @@ class AbstractsSrapLinks(ABC):
     def execute(self) -> list:
         pass
 
+
 class AbstractsCreateUrlsFromParameters(ABC):
     @ abstractmethod
     def __init__(self, searchParameters):
         pass
     
     @abstractmethod
-    def createUrls(self) -> None:
+    def createUrlsFrom(self) -> None:
         pass
 
     @abstractmethod
     def get(self) -> list:
         pass
 
-class AbstractsSrapDetails(ABC):
+
+class AbstractsScrapDetails(ABC):
     @abstractmethod
     def __init__(self, htmlString):
         pass
@@ -76,7 +79,7 @@ class AbstractsSrapDetails(ABC):
         pass
 
 
-class OLXSrapLinks(AbstractsSrapLinks):
+class OLXScrapLinks(AbstractsSrapLinks):
     def __init__(self, htmlString):
         self.htmlString = htmlString
 
@@ -86,7 +89,7 @@ class OLXSrapLinks(AbstractsSrapLinks):
             if not 'https://www.otodom.pl/pl/oferta' in link:
                 if not "/d/oferta" in link:
                     if not "/d/nieruchomosci" in link:
-                        logger.error('Class: OLXSrapLinks; method: corectLinks; Unrecognised link =', link)
+                        logger.error('Class: OLXScrapLinks; method: corectLinks; Unrecognised link =', link)
                         return False
             if not "https" in link:
                 link = "https://www.olx.pl" + link
@@ -105,7 +108,6 @@ class OLXSrapLinks(AbstractsSrapLinks):
         urls = self.correctUrls(urlsToCorrect)
         return urls
 
-    @classmethod
     def execute(self) -> list:
         soup = BeautifulSoup(self.htmlString, "html.parser")
         gridWithListOfAds = soup.body.find("div", {"data-testid":"listing-grid"})
@@ -114,28 +116,23 @@ class OLXSrapLinks(AbstractsSrapLinks):
         return links
 
 
-class OLXSrapDetails(AbstractsSrapDetails):
+class OLXScrapDetails(AbstractsScrapDetails):
     def __init__(self, htmlString):
         self.htmlString = htmlString
-
-    def execute(self) -> str:
-        return "OLXSrapedDetails."
     
-    def categoryAndCity(self, soup):
+    def categoriesAndCity(self, soup):
         categoriesAndCity = {}
         scrapedGroupWithCategories = soup.body.find_all("li", {"data-testid":"breadcrumb-item"})
         categoryAndCity = [i.find("a").text for i in scrapedGroupWithCategories]
 
-        categoriesAndCity["advCategory"] = categoryAndCity[0].strip()
-        categoriesAndCity["category"] = categoryAndCity[1].strip()
+        categoriesAndCity["advCategory"] = categoryAndCity[1].strip()
+        categoriesAndCity["category"] = categoryAndCity[2].strip()
         categoriesAndCity["city"] = categoryAndCity[5].split("-")[-1].strip()
 
         return categoriesAndCity
 
     def checkIsRequestedAdv(self, categoriesAndCity):
         if "Nieruchomości" != categoriesAndCity["advCategory"]:
-            return False
-        elif not categoriesAndCity["city"] in City.objects.all().values_list("cityName", flat=True):
             return False
         else:
             return True
@@ -149,8 +146,8 @@ class OLXSrapDetails(AbstractsSrapDetails):
         # ['Prywatne', 'Cena za m²: 76.74 zł/m²', 'Poziom: 9', 'Umeblowane: Tak', 'Rynek: Pierwotny', 'Rodzaj zabudowy: Apartamentowiec', 'Powierzchnia: 43 m²', 'Liczba pokoi: 2 pokoje']
         for informationGroup in informationGroupList:   
             informations = informationGroup.split()
-
-            if informations[0] == "Prywatne" or informations[0] == "Prywatne":
+            
+            if informations[0] == "Prywatne" or informations[0] == "Firma" or informations[0] == "Deweloper":
                 scrapedDetails["ownerCategory"] = informations[0]
             if informations[0] == "Poziom:":
                 scrapedDetails["level"] = informations[1]
@@ -165,7 +162,7 @@ class OLXSrapDetails(AbstractsSrapDetails):
                 except:
                     scrapedDetails["area"] = None
             if informations[0] == "Liczba":
-                scrapedDetails["rooms"] = informations[2]
+                scrapedDetails["rooms"] = int(informations[2])
         return scrapedDetails
     
     def price(self, soup):
@@ -180,29 +177,29 @@ class OLXSrapDetails(AbstractsSrapDetails):
     
     def changeMonth(self, month):
         match month:
-            case "styczeń":
+            case "stycznia":
                 return "01"
-            case "luty":
+            case "lutego":
                 return "02"
-            case "marzec":
+            case "marca":
                 return "03"
-            case "kwiecień":
+            case "kwietnia":
                 return "04"
-            case "maj":
+            case "maja":
                 return "05"
-            case "czerwiec":
+            case "czerwieca":
                 return "06"
-            case "lipiec":
+            case "lipieca":
                 return "07"
-            case "sierpień":
+            case "sierpnia":
                 return "08"
-            case "wrzesień":
+            case "września":
                 return "09"
-            case "październik":
+            case "października":
                 return "10"
-            case "listopad":
+            case "listopada":
                 return "11"
-            case "grudzień":
+            case "grudnia":
                 return "12"
             case _:
                 return "01"
@@ -217,14 +214,15 @@ class OLXSrapDetails(AbstractsSrapDetails):
         except:
             date = datetime.now()
         return date
-    def scrapDetails(self):
+    
+    def execute(self) -> dict:
         """Method with sets of complex methods to scrape all data from sell advertisement"""
         """not all advs have all params also her are some params that are not in database model
         for add to database model in the future"""
         scrapedDetails = {}
         soup = BeautifulSoup(self.htmlString, "html.parser")
         
-        categoriesAndCity = categoriesAndCity(soup)
+        categoriesAndCity = self.categoriesAndCity(soup)
 
         if not self.checkIsRequestedAdv(categoriesAndCity):
             return False
@@ -249,22 +247,21 @@ class OLXSrapDetails(AbstractsSrapDetails):
         scrapedDetails["area"] = informations["area"]
         scrapedDetails["rooms"] = informations["rooms"]
             
-        scrapedDetails["description"] = soup.body.find("div",{"data-cy":"ad-description"})
+        scrapedDetails["description"] = soup.body.find("div",{"class":"css-bgzo2k er34gjf0"}).text # 
+        logger.info("Description" + str(scrapedDetails["description"]))
         id = soup.body.find("div",{"data-cy":"ad-footer-bar-section"}).find("span").strings
-        scrapedDetails["advId"] = [i for i in id if len(i) > 4]
+        scrapedDetails["advId"] = [i for i in id if len(i) > 4][0]
         
         return scrapedDetails
 
-    
-    
+
 class OLXCreateUrlsFromParameters(AbstractsCreateUrlsFromParameters):
     def __init__(self, searchParameters):
         self.searchParameters = searchParameters
         self.urlsList = []
-        self.createUrls()
+        self.createUrlsFrom()
 
-    def createUrls(self) -> None:
-        """Create requests from search parameters"""
+    def translateRoomsToName(self, rooms):
         roomsDict = {
             1 : "one",
             2 : "two",
@@ -277,8 +274,19 @@ class OLXCreateUrlsFromParameters(AbstractsCreateUrlsFromParameters):
             9 : "nine",
             0 : ""
         }
+        try:
+            return roomsDict[rooms]
+        except:
+            return "nine"
+
+    def createUrlsFrom(self) -> None:
+        """Create requests from search parameters"""
+
         for param in self.searchParameters:
-            url = f"""https://www.olx.pl/nieruchomosci/{param["category__categoryName"].lower()}/sprzedaz/{param["city__slug"].replace("_", "-")}/?search%5Bfilter_float_m:to%5D={param["area"]}&search%5Bfilter_enum_rooms%5D%5B0%5D={roomsDict[param["rooms"]]}&search%5Bfilter_float_price_per_m:to%5D={param["price"]}"""
+            rooms = self.translateRoomsToName(param["rooms"])
+            category = param["category__categoryName"].lower()
+            city = slugify(param["city__slug"])
+            url = f"""https://www.olx.pl/nieruchomosci/{category}/sprzedaz/{city}/?search%5Bfilter_float_m:to%5D={param["area"]}&search%5Bfilter_enum_rooms%5D%5B0%5D={rooms}&search%5Bfilter_float_price_per_m:to%5D={param["price"]}"""
             self.urlsList.append(url)
 
     def get(self) -> list:

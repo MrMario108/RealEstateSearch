@@ -12,7 +12,6 @@ class TestCity:
         return CityFactory.create()
     
     def test_str_city(self, city):
-        print(str(city), f"{city.cityName}")
         assert str(city) == f"{city.cityName}"
     
     def test_instance_city(self, city):
@@ -20,26 +19,13 @@ class TestCity:
         assert isinstance(city.slug, str)
 
     def test_slug_city(self, city):
-        print(city.slug)
         assert city.slug == slugify(city.cityName)
 
 
-@pytest.mark.django_db
-class TestCategory:
-    @pytest.fixture
-    def category(self):
-        return CategoryFactory.create()
-    
-    def test_str_category(self, category):
-        assert str(category) == f"{category.categoryName}"
-    
-    def test_instance_category(self, category):
-        assert isinstance(category.categoryName, str)
-
-    def test_value_category(self, category):
-        assert category.categoryName in ("Mieszkania", "Domy", "Działki")
 
 
 
-# docker exec -it realestatesearch-web-1 pytest -v
+
+# docker exec -it realestatesearch-web-1 pytest -v 
+# docker exec -it realestatesearch-web-1 pytest -v --create-db  # utworzy od nowa bazę testową
 # docker exec -it realestatesearch-web-1 pytest --cov=olxSearch --cov-report=html

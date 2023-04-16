@@ -41,21 +41,21 @@
     "model": "olxSearch.buildingType",
     "pk": 1,
     "fields": {
-      "name": "kamienica"
+      "name": "Kamienica"
     }
   },
   {
     "model": "olxSearch.buildingType",
     "pk": 2,
     "fields": {
-      "name": "blok"
+      "name": "Blok"
     }
   },
   {
     "model": "olxSearch.buildingType",
     "pk": 3,
     "fields": {
-      "name": "apartamentowiec"
+      "name": "Apartamentowiec"
     }
   }
 ]

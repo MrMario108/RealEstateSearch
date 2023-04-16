@@ -3,16 +3,16 @@ from datetime import datetime
 
 
 class SaveApartment():
-    def __init__(self, status,scrapedDetails) -> None:
+    def __init__(self, status, scrapedDetails) -> None:
         self.isExists = status
         self.scrapedDetails = scrapedDetails
 
     
     @classmethod
     def checkIfExists(cls,scrapedDetails):
-        """Check through 5 params is scrapedDetails is in db """        
+        """Check through 4 params is scrapedDetails is in db """        
         findedApartment = []
-        findedApartment = models.Apartment.objects.filter(advId=scrapedDetails["advId"] , category__categoryName=scrapedDetails["category"], city__cityName=scrapedDetails["city"], rooms=scrapedDetails["rooms"], area=scrapedDetails["area"])
+        findedApartment = models.Apartment.objects.filter(advId=scrapedDetails["advId"] , category__categoryName=scrapedDetails["category"], city__cityName=scrapedDetails["city"], rooms=scrapedDetails["rooms"])
         
         if len(findedApartment) !=0:
             return cls(True, scrapedDetails)
@@ -23,6 +23,7 @@ class SaveApartment():
         if self.isExists:
             raise Exception("Apartment already exists")
         else:
+
             scrapedDetails = self.scrapedDetails
             newApartment = models.Apartment()
             newApartment.advId = scrapedDetails["advId"]
@@ -35,7 +36,9 @@ class SaveApartment():
             newApartment.category = models.Category.objects.get(categoryName=scrapedDetails["category"])
             newApartment.rooms = scrapedDetails["rooms"]
             newApartment.city = models.City.objects.get(cityName=scrapedDetails["city"])
+            newApartment.buildingType = models.BuildingType.objects.get(name = scrapedDetails["buildingType"])
             newApartment.save()
+        return True
 
     def delCategory(self):
         pass

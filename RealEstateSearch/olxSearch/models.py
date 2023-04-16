@@ -4,8 +4,6 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 
-# Create your models here.
-
 
 class City(models.Model):
     slug = models.SlugField(max_length=100, default="")

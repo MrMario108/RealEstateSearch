@@ -6,26 +6,38 @@ from .utils.saveScraper import SaveApartment
 from olxSearch.models import SearchingSettings, Category, City
 from django.db.models import Max
 from django.conf import settings
+from django.core.mail import send_mail
+from django.contrib.auth import get_user_model
 
 logger = logging.getLogger('celeryLogger')
 
 
-#@shared_task(bind=True)
-#def send_mail_func(self, data = None):
-#    users = get_user_model().objects.all()
-#    for user in users:
-#        print(user.email)
-#        mail_subject = 'Hi! Celery testing'
-#        message = 'data scedule from RealEstateSearch'
-#        to_email = user.email
-#        send_mail(
-#            subject=mail_subject,
-#            message=message,
-#            from_email= local.EMAIL_HOST_USER,
-#            recipient_list=[to_email],
-#            fail_silently=False
-#        )
-#    return "Done"
+@shared_task(bind=True)
+def sendMail(self, realEstateDetails = None):
+    users = get_user_model().objects.all()
+    for user in users:
+        mail_subject = 'Real Estate Search'
+        to_email = user.email
+        send_mail(
+            subject=mail_subject,
+            message=prepareMailMessage(realEstateDetails),
+            from_email= settings.EMAIL_HOST_USER,
+            recipient_list=[to_email],
+            fail_silently=False
+        )
+
+def prepareMailMessage(realEstateDetails):
+    if realEstateDetails != None:
+        message = 'We found a new real estate ! \n'
+        message += realEstateDetails["title"]+'\n'
+        message += 'City: ' + realEstateDetails["city"]+'\n'
+        message += 'Price: ' + realEstateDetails["price"]+'\n'
+        message += realEstateDetails["category"]
+        message += 'Rooms: ' + realEstateDetails["rooms"]+'\n'
+        message += 'Click link: ' + realEstateDetails["link"]
+        return message
+    else:
+        return 'We found a new real estate !!! Please login to your account to check details.'
 
 class GroupedSearchParameters():
     
@@ -62,8 +74,11 @@ class GroupedSearchParameters():
         if (maxPrice['price__max'] != None):
             return self.joinSingleSearchParametersFrom(list(selectedParameters), maxPrice)
 
+@shared_task(bind=True)
 def saveRealEstateDetails(self, realEstateDetails):
-    SaveApartment.checkIfExists(realEstateDetails).tryToSave()
+    if SaveApartment.checkIfExists(realEstateDetails).tryToSave():
+        sendMail(realEstateDetails)
+
 
 
 @shared_task(bind=True)

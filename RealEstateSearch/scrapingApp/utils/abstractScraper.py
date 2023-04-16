@@ -2,7 +2,6 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from bs4 import BeautifulSoup
 import logging
-from olxSearch.models import City, Apartment, Category
 from datetime import datetime
 from django.utils.text import slugify
 
@@ -11,7 +10,7 @@ logger = logging.getLogger('celeryLogger')
 class AbstractScraper(ABC):
 
     @abstractmethod
-    def scrapLinks(self, htmlString) -> AbstractsSrapLinks:
+    def scrapLinks(self, htmlString) -> AbstractsScrapLinks:
         pass
 
     @abstractmethod
@@ -24,28 +23,28 @@ class AbstractScraper(ABC):
 
 class OLX_Scraper(AbstractScraper):
 
-    def scrapLinks(self, htmlString) -> AbstractsSrapLinks:
+    def scrapLinks(self, htmlString) -> AbstractsScrapLinks:
         return OLXScrapLinks(htmlString)
 
     def scrapDetails(self, htmlString) -> AbstractsScrapDetails:
-        return OLXScrapLinks(htmlString)
+        return OLXScrapDetails(htmlString)
     
     def createUrlsFrom(self, searchParameters) -> AbstractsCreateUrlsFromParameters:
         return OLXCreateUrlsFromParameters(searchParameters)
 
 #class OtoDom_Scraper(AbstractScraper):
 #
-#    def scrapLinks(self, htmlString) -> AbstractsSrapLinks:
-#        return OtoDomSrapLinks(htmlString)
+#    def scrapLinks(self, htmlString) -> AbstractsScrapLinks:
+#        return OtoDomScrapLinks(htmlString)
 #
-#    def scrapDetails(self, htmlString) -> AbstractsSrapDetails:
-#        return OtoDomSrapDetails(htmlString)
+#    def scrapDetails(self, htmlString) -> AbstractsScrapDetails:
+#        return OtoDomScrapDetails(htmlString)
 #
 #    def createUrlsFrom(self, searchParameters) -> AbstractsCreateUrlsFromParameters:
 #        return OtoDomCreateUrlsFromParameters(searchParameters)
 
 
-class AbstractsSrapLinks(ABC):
+class AbstractsScrapLinks(ABC):
     @abstractmethod
     def __init__(self, htmlString):
         pass
@@ -79,7 +78,7 @@ class AbstractsScrapDetails(ABC):
         pass
 
 
-class OLXScrapLinks(AbstractsSrapLinks):
+class OLXScrapLinks(AbstractsScrapLinks):
     def __init__(self, htmlString):
         self.htmlString = htmlString
 
@@ -237,6 +236,8 @@ class OLXScrapDetails(AbstractsScrapDetails):
         scrapedDetails["date_published"] = self.formatDate(date_published)
 
         scrapedDetails["title"] = soup.body.find("h1",{"data-cy":"ad_title"}).string
+        scrapedDetails["link"] = soup.head.find("link",{"rel":"canonical"})["href"]
+        
         scrapedDetails["price"] = self.price(soup)
 
         informations = self.informationGroup(soup)
@@ -296,7 +297,7 @@ class OLXCreateUrlsFromParameters(AbstractsCreateUrlsFromParameters):
 
 
 #
-#class OtoDomSrapLinks(AbstractsSrapLinks):
+#class OtoDomScrapLinks(AbstractsScrapLinks):
 #    def __init__(self, htmlString):
 #        self.htmlString = htmlString
 #
@@ -304,12 +305,12 @@ class OLXCreateUrlsFromParameters(AbstractsCreateUrlsFromParameters):
 #        return ["http://onet.pl",]
 #
 #
-#class OtoDomSrapDetails(AbstractsSrapDetails):
+#class OtoDomScrapDetails(AbstractsScrapDetails):
 #    def __init__(self, htmlString):
 #        self.htmlString = htmlString
 #
 #    def execute(self) -> str:
-#        return "OtoDomSrapedDetails"
+#        return "OtoDomScrapedDetails"
 #
 #
 #class OtoDomCreateUrlsFromParameters(AbstractsCreateUrlsFromParameters):

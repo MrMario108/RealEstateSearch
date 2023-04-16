@@ -1,7 +1,5 @@
 import pytest
-from django.test import TestCase
-from scrapingApp.utils.abstractScraper import AbstractScraper, OLXCreateUrlsFromParameters, OLXScrapLinks, OLXScrapDetails
-from scrapingApp.utils.saveScraper import SaveApartment
+from scrapingApp.utils.abstractScraper import OLXCreateUrlsFromParameters, OLXScrapLinks, OLXScrapDetails
 from olxSearch.models import SearchingSettings, Category, City, User
 from olxSearch.tests.factory import CityFactory, CategoryFactory, UserFactory, SearchingSettingsFactory
 from scrapingApp.tasks import GroupedSearchParameters

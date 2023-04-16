@@ -3,6 +3,18 @@ FROM python:3.10-slim-buster
 LABEL maintainer="RealEstateSearch-Production"
 
 ENV PYTHONUNBUFFERED 1
+# for loging
+RUN mkdir /app/logs && touch /app/logs/celeryInfo.log
+
+RUN pip install poetry==1.3.2
+WORKDIR /app
+
+# Install poetry
+COPY ./RealEstateSearch/poetry.lock /app/
+COPY ./RealEstateSearch/pyproject.toml /app/
+RUN poetry config virtualenvs.create false
+RUN chmod +x /app/logs/celeryInfo.log
+RUN poetry install
 
 RUN apt-get update \
   # dependencies for building Python packages
@@ -17,10 +29,6 @@ RUN apt-get update \
 
 RUN addgroup --system django \
     && adduser --system --ingroup django django
-
-# Requirements are installed here to ensure they will be cached.
-COPY ./requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
 
 COPY ./compose/production/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
@@ -49,7 +57,6 @@ RUN chmod +x /start-flower
 RUN mkdir /app
 RUN mkdir /app/staticfiles
 RUN mkdir /app/mediafiles
-WORKDIR /app
 
 # copy project code
 COPY /RealEstateSearch .

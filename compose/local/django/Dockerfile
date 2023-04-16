@@ -1,9 +1,24 @@
-FROM python:3.10-slim-buster
+FROM python:3.10.6
 
 LABEL maintainer="RealEstateSearch-New-docker"
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
+
+RUN pip install poetry==1.3.2
+WORKDIR /app
+
+# for loging
+RUN mkdir /app/logs && touch /app/logs/celeryInfo.log
+
+
+# Install poetry
+COPY ./RealEstateSearch/poetry.lock /app/
+COPY ./RealEstateSearch/pyproject.toml /app/
+RUN poetry config virtualenvs.create false
+RUN chmod +x /app/logs/celeryInfo.log
+RUN poetry install
+
 
 RUN apt-get update \
   # dependencies for building Python packages
@@ -16,8 +31,9 @@ RUN apt-get update \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 # Requirements are installed here to ensure they will be cached.
-COPY ./requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
+#COPY ./requirements.txt /requirements.txt
+#RUN pip install -r /requirements.txt
+
 
 COPY ./compose/local/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
@@ -39,6 +55,6 @@ COPY ./compose/local/django/celery/flower/start /start-flower
 RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 
-WORKDIR /app
+
 
 ENTRYPOINT ["/entrypoint"]

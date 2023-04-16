@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 from celery import shared_task
@@ -65,6 +66,8 @@ def send_mail_func(self, data = None):
     return "Done"
 =======
 >>>>>>> 1bc5f64 (added-first-tests)
+=======
+>>>>>>> 130390e (save_work)
 import logging
 
 import requests
@@ -186,8 +189,12 @@ def startScraperTasks(self):
     for portalNameClass in AbstractScraper.__subclasses__():
         logger.info("Start scrap task: "+str(i) + str(portalNameClass.__name__))
 <<<<<<< HEAD
+<<<<<<< HEAD
         prepareScraperTask.delay(portalNameClass.__name__)
 =======
         prepareScraperTask.delay(portalNameClass.__name__)
 >>>>>>> aae4168 (added-first-tests)
 >>>>>>> 1bc5f64 (added-first-tests)
+=======
+        prepareScraperTask.delay(portalNameClass.__name__)
+>>>>>>> 130390e (save_work)

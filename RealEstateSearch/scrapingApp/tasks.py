@@ -129,5 +129,5 @@ def scrapDetailsTask(self, url,  scraperName: str) -> None:
 def startScraperTasks(self):
     i =0
     for portalNameClass in AbstractScraper.__subclasses__():
-        prepareScraperTask().delay(portalNameClass)
+        prepareScraperTask.delay(portalNameClass.__name__)
         logger.info("Start scrap task: "+str(i) + str(portalNameClass.__name__))

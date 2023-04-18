@@ -159,7 +159,7 @@ class OLXScrapDetails(AbstractsScrapDetails):
                 try:
                     scrapedDetails["area"] = float(area.replace(',','.'))
                 except:
-                    scrapedDetails["area"] = None
+                    scrapedDetails["area"] = 0
             if informations[0] == "Liczba":
                 scrapedDetails["rooms"] = int(informations[2])
         return scrapedDetails
@@ -168,9 +168,9 @@ class OLXScrapDetails(AbstractsScrapDetails):
         priceTemp = soup.body.find("div",{"data-testid":"ad-price-container"}).find("h3").strings
         priceTemp = [i for i in priceTemp]
         try:
-            price = int(priceTemp[0].strip().replace(' ',''))
+            price = int(priceTemp[0].strip().replace(' ','').replace('zł',''))
         except:
-            price = None
+            price = 0
         
         return price
     

@@ -26,7 +26,7 @@ class RealEstate(models.Model):
     pic = models.CharField(max_length=300, default="")
     title = models.CharField(max_length=100, default="")
     price = models.FloatField(validators=[MinValueValidator(0.0)], default=0.0)
-    date_published2 = models.DateTimeField(default=timezone.now)
+    #date_published2 = models.DateTimeField(default=timezone.now())
     date_published = models.CharField(max_length=50, default="")
     area = models.FloatField(validators=[MinValueValidator(0.0)], default=0.0)
     category = models.ForeignKey(
@@ -48,6 +48,7 @@ class Apartment(RealEstate):
     rooms = models.IntegerField(default=0)
     buildingType = models.ForeignKey(
         BuildingType, on_delete=models.CASCADE, related_name='realEstateBuildingType')
+
     def __str__(self) -> str:
         return self.title
 
@@ -66,15 +67,17 @@ class Profile(models.Model):
 class SearchingSettings(models.Model):
     title = models.CharField(max_length=100, default="")
     price = models.IntegerField(default=0)
-    area = models.IntegerField(validators=[MinValueValidator(0)],default=0)
+    area = models.IntegerField(validators=[MinValueValidator(0)],default=0, blank=True, null=True)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='searchingSettingCategory')
-    rooms = models.IntegerField(validators=[MinValueValidator(0)], default=0, blank=True, null=True)
+    rooms = models.IntegerField(validators=[MinValueValidator(0)], default=1, blank=True, null=True)
     city = models.ForeignKey(
         City, on_delete=models.CASCADE, related_name='searchingSettingCity')
-    date_created = models.DateTimeField(verbose_name='Date of created SearchSettings', default=timezone.now())
+    date_created = models.DateTimeField(verbose_name='Date of created SearchSettings', default=timezone.now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    buildingType = models.ForeignKey(
+        BuildingType, on_delete=models.CASCADE, related_name='searchingSettingsBuildingType', default=1)
+    
     def __str__(self):
         return self.title
 

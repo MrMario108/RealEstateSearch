@@ -26,17 +26,17 @@ class SaveApartment():
 
             scrapedDetails = self.scrapedDetails
             newApartment = models.Apartment()
-            newApartment.advId = scrapedDetails["advId"]
-            newApartment.link = scrapedDetails["link"]
-            newApartment.pic = scrapedDetails["pic"]
-            newApartment.title = scrapedDetails["title"]
-            newApartment.price = scrapedDetails["price"]
-            newApartment.date_published = scrapedDetails["date_published"]
-            newApartment.area = scrapedDetails["area"]
-            newApartment.category = models.Category.objects.get(categoryName=scrapedDetails["category"])
-            newApartment.rooms = scrapedDetails["rooms"]
             newApartment.city = models.City.objects.get(cityName=scrapedDetails["city"])
+            newApartment.category = models.Category.objects.get(categoryName=scrapedDetails["category"])
             newApartment.buildingType = models.BuildingType.objects.get(name = scrapedDetails["buildingType"])
+            newApartment.advId = scrapedDetails["advId"]
+            newApartment.title = scrapedDetails["title"]
+            newApartment.pic = scrapedDetails["pic"]
+            newApartment.price = scrapedDetails["price"]
+            newApartment.area = scrapedDetails["area"]
+            newApartment.rooms = scrapedDetails["rooms"]
+            newApartment.date_published = scrapedDetails["date_published"]
+            newApartment.link = scrapedDetails["link"]
             newApartment.save()
         return True
 

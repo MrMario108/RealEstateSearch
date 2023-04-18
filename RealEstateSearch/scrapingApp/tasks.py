@@ -14,15 +14,18 @@ logger = logging.getLogger('celeryLogger')
 
 @shared_task(bind=True)
 def sendMail(self, realEstateDetails = None):
+    logger.info("sendMail")
+    
     users = get_user_model().objects.all()
     for user in users:
         mail_subject = 'Real Estate Search'
         to_email = user.email
+        logger.info(""+ user.email)
         send_mail(
             subject=mail_subject,
             message=prepareMailMessage(realEstateDetails),
             from_email= settings.EMAIL_HOST_USER,
-            recipient_list=[to_email],
+            recipient_list=[to_email,],
             fail_silently=False
         )
 
@@ -31,9 +34,9 @@ def prepareMailMessage(realEstateDetails):
         message = 'We found a new real estate ! \n'
         message += realEstateDetails["title"]+'\n'
         message += 'City: ' + realEstateDetails["city"]+'\n'
-        message += 'Price: ' + realEstateDetails["price"]+'\n'
+        message += 'Price: ' + str(realEstateDetails["price"])+'\n'
         message += realEstateDetails["category"]
-        message += 'Rooms: ' + realEstateDetails["rooms"]+'\n'
+        message += 'Rooms: ' + str(realEstateDetails["rooms"])+'\n'
         message += 'Click link: ' + realEstateDetails["link"]
         return message
     else:
@@ -60,7 +63,7 @@ class GroupedSearchParameters():
     def joinSingleSearchParametersFrom(self, selectedParameters, maxPrice):
 
         selectedParameters[0]["price"] = maxPrice['price__max']
-        logger.info("joinSingleSearchParametersFrom: " + str(selectedParameters[0]))
+        #logger.info("joinSingleSearchParametersFrom: " + str(selectedParameters[0]))
         return selectedParameters[0]
 
     def findPricesForCategoryAndCity(self, category, city):
@@ -68,9 +71,9 @@ class GroupedSearchParameters():
 
     def findMaxPrice(self, category, city):
         selectedParameters = self.findPricesForCategoryAndCity(category, city)
-        logger.info("getGroupedSearchParameters; selectedParameters: " + str(selectedParameters))
+        #logger.info("getGroupedSearchParameters; selectedParameters: " + str(selectedParameters))
         maxPrice = selectedParameters.aggregate(Max('price'))
-        logger.info("getGroupedSearchParameters; maxPrice: " + str(maxPrice))
+        #logger.info("getGroupedSearchParameters; maxPrice: " + str(maxPrice))
         if (maxPrice['price__max'] != None):
             return self.joinSingleSearchParametersFrom(list(selectedParameters), maxPrice)
 
@@ -80,13 +83,15 @@ def saveRealEstateDetails(self, realEstateDetails):
         sendMail(realEstateDetails)
 
 
-
-@shared_task(bind=True)
-def downloadHtml(self, url) -> str:
+def downloadHtml(url) -> str:
+    logger.info("downloadHtml; url="+str(url))
     session = requests.Session()
     response = session.get(url, timeout=5)
     if response.status_code == 200:
+        logger.info("downloadHtml; response.text[:50]="+str(response.text[:50]))
         return response.text
+    else:
+        logger.info("downloadHtml; response error code="+str(response.status_code))
 
 
 def getScraperInstanceBy(scraperName: str) -> AbstractScraper:
@@ -111,14 +116,18 @@ def prepareScraperTask(self, scraperName: str) -> None:
 def scraperLinksTask(self, url,  scraperName: str) -> None:
     scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
     
-    # for testing
-    #htmlString = downloadHtml.delay(url)
-    with open("scrapingApp/tests/olx-list.html", "r", encoding="utf-8") as f:
-        htmlString = f.read()
+    if not settings.ENV_DEVELOP_MODE:
+        #htmlString = downloadHtml.delay(url)
+        htmlString = downloadHtml(url)
+    else:
+        with open("scrapingApp/tests/olx-list.html", "r", encoding="utf-8") as f:
+            htmlString = f.read()
+
+    logger.info("scraperLinksTask; htmlString[:50]="+str(htmlString)[:50])
 
     urls = scraperInstance.scrapLinks(htmlString).execute()
     
-    logger.info("In scraperLinksTask: Value of scraped urls: "+ str(urls)+ "; Typ of urls"+str(type(urls))+ "; Value of scraperName" +str(scraperName))
+    logger.info("scraperLinksTask; scraped urls= "+ str(urls)+ "; Typ of urls"+str(type(urls))+ "; Value of scraperName" +str(scraperName))
 
     for url in urls:
         logger.info("In scraperLinksTask loop: Value of url: "+ str(url)+ "; Value of scraperName" +str(scraperName))
@@ -130,10 +139,13 @@ def scrapDetailsTask(self, url,  scraperName: str) -> None:
     logger.info("In scrapDetailsTask: Value of url: "+ str(url)+ "; Value of scraperName" +str(scraperName))
     
     scraperInstance = getScraperInstanceBy(scraperName) # get scraper instance by name because celery can't serialize instance of this class
-    # for testing
-    #htmlString = downloadHtml.delay(url)
-    with open("scrapingApp/tests/olx-detail.html", "r", encoding="utf-8") as f:
-        htmlString = f.read()
+    
+    if not settings.ENV_DEVELOP_MODE:
+        #htmlString = downloadHtml.delay(url)
+        htmlString = downloadHtml(url)
+    else:
+        with open("scrapingApp/tests/olx-detail.html", "r", encoding="utf-8") as f:
+            htmlString = f.read()
 
     realEstateDetails = scraperInstance.scrapDetails(htmlString).execute()
     
@@ -142,7 +154,7 @@ def scrapDetailsTask(self, url,  scraperName: str) -> None:
 
 @shared_task(bind=True)
 def startScraperTasks(self):
-    i =0
     for portalNameClass in AbstractScraper.__subclasses__():
         prepareScraperTask.delay(portalNameClass.__name__)
-        logger.info("Start scrap task: "+str(i) + str(portalNameClass.__name__))
+        logger.info("\n")
+        logger.info("Start scrap task: " + str(portalNameClass.__name__))
